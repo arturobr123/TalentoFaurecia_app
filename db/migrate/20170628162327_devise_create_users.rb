@@ -37,15 +37,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.text :university
       t.text :carrer
       t.string :type_of_internship
-      t.text :language1
-      t.integer :language1_percentage_reading
-      t.integer :language1_percentage_writing
-      t.text :language2
-      t.integer :language2_percentage_reading
-      t.integer :language2_percentage_writing
-      t.text :language3
-      t.integer :language3_percentage_reading
-      t.integer :language3_percentage_writing
 
       t.integer :semester
       t.integer :graduation_year
