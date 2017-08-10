@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title></title>
+  
+</head>
+<body class="white-background">
+
+<div class="top-space">
+<%= render "partials/buscadorVacantes" %>
+
+<%= render "partials/preloader" %>
+  <div class="row center-xs">
+    
+    <div class="col-xs-6 ">
+          
+        <div class="box">
+          <div class="row">
+
+          <div class="col-xs-14 text-left">
+              <div class="box">
+                <div id="posts">
+
+                  <div id="resultados"></div>
+
+                  <div id="data"> <%= render @vacantes %> </div>
+
+
+                  <div id="pagination" class="text-center"> <%= will_paginate @vacantes %> </div>
+
+                  <div id="pagination"> </div>
+                  
+                
+              </div>
+
+              </div>
+          </div>
+
+          </div>
+
+        </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+

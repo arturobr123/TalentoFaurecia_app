@@ -1,0 +1,128 @@
+%body.white-background
+%p#notice= notice
+
+.row.center-xs
+  .col-xs-9
+    .box.text-left
+      .col.s12
+        .row
+
+          .div.input-field.col.s4
+            %div
+              %b Name:
+            = @user.name
+            =@user.firs_last_name
+            =@user.second_last_name
+
+          .div.input-field.col.s4
+            %div
+              %b Telefono:
+            = @user.phone
+          
+          .div.input-field.col.s4
+            %div
+              %b Sexo:
+            = @user.sexo
+
+          .div.input-field.col.s4
+            %div
+              %b Universidad:
+            -if @user.university
+              = TC::University.find(@user.university).universidad
+
+          .div.input-field.col.s4
+            %div
+              %b Carrera:
+            -if @user.carrer
+              = TC::Carrer.find(@user.carrer).carrera
+
+          .div.input-field.col.s4
+            %div
+              %b Duracion internship meses:
+            = @user.duration_internship
+
+          .div.input-field.col.s4
+            %div
+              %b Semestre:
+            = @user.semester
+
+          .div.input-field.col.s4
+            %div
+              %b Fecha de nacimiento:
+            =fechaBonita @user.birthdate
+
+          .div.input-field.col.s4
+            %div
+              %b Año de graduacion:
+            = @user.graduation_year
+
+          .div.input-field.col.s4
+            %div
+              %b Disponible en:
+            =fechaBonita @user.disponible_en
+
+          .div.input-field.col.s4
+            %div
+              %b Estado de residencia:
+            -if @user.estado_residencia
+              = TC::Estado.find(@user.estado_residencia).estado
+             
+
+          .div.input-field.col.s4
+            %div
+              %b Nivel de ingles:
+            = @user.level_english
+            \/100
+
+
+      
+          .div.input-field.col.s4
+            %div
+              %b Area de interes 1:
+            -if @user.interest_area1
+              =TC::Job_area.find(@user.interest_area1).job_area 
+
+              
+          .div.input-field.col.s4
+            %div
+              %b Area de interes 2:
+            -if @user.interest_area2
+              =TC::Job_area.find(@user.interest_area2).job_area 
+
+
+          .div.input-field.col.s4
+            %div
+              %b Area de interes 3:
+            -if @user.interest_area3
+              =TC::Job_area.find(@user.interest_area3).job_area
+
+
+          .div.input-field.col.s4
+            %div
+
+          .div.input-field.col.s4
+            %div
+              %b Status:
+            -if @user.status
+              =TC::Status.find(@user.status).status  
+
+          .div.input-field.col.s4
+            %div
+              %b CV:
+            = link_to @user.CV_file_name, @user.CV.url(:original, false)
+
+
+
+    .col.s3
+      -if current_admin
+        = link_to 'Nueva Evaluacion', new_evaluation_path(userid: @user.id), class:"waves-effect waves-light btn"
+
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', root_path
+
+
+
+
+

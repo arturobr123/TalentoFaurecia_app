@@ -1,0 +1,36 @@
+.row
+  .col.m12
+    .card.z-depth-2
+      .card-content.black-text
+        .row
+          .col.s12
+            .col.s6
+              %span
+                =vacante_aplicada.user.name
+                =vacante_aplicada.user.firs_last_name
+                =vacante_aplicada.user.second_last_name
+                
+                .div
+                  Escuela:
+                  -if vacante_aplicada.user.university
+                    =TC::University.find(vacante_aplicada.user.university).universidad
+
+                .div
+                  Carrera:
+                  -if vacante_aplicada.user.carrer
+                    =TC::Carrer.find(vacante_aplicada.user.carrer).carrera
+              
+            .col.s6
+              %span
+                =vacante_aplicada.vacante.name
+                
+                .div
+                  Location:
+                  =vacante_aplicada.vacante.location
+
+                .div
+                  Area:
+                  =TC::Job_area.find(vacante_aplicada.vacante.area).job_area
+              
+
+              

@@ -1,0 +1,50 @@
+
+
+<div class="row left-xs">
+
+	<div class="col-xs-8">
+
+		<div class="box">
+
+
+			<div class="">
+		     <%=form_tag "/search/search_vacantes_aplicadas_Admin", method: :get, remote: true, id:"search-form" do  %>
+
+		      <div class="input-field col s2">
+		      	<%=text_field_tag :keywordUserName, nil, placeholder: "By name ", class:"labelBuscador" %>
+		      </div>
+
+		      <div class="input-field col s2">
+		      	<%=text_field_tag :keywordUser_1_lastname, nil, placeholder: "lastname ", class:"labelBuscador" %>
+		      </div>
+
+		      <div class="input-field col s2">
+		      	<%=text_field_tag :keywordUser_2_lastname, nil, placeholder: "2nd last name", class:"labelBuscador" %>
+		      </div>
+
+
+		      <div class="input-field col s4">
+		      	<%=text_field_tag :keywordVacanteName, nil, placeholder: "By name vacante", class:"labelBuscador" %>
+
+		      </div>
+		 
+
+		      <div class="input-field col s2">
+		      	<button class="waves-effect waves-light btn buttonBuscador" type="submit">Search</button>
+
+		      </div>
+
+
+          	   	  
+
+        	<% end %>
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+

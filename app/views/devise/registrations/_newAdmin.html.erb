@@ -1,0 +1,49 @@
+<%= form_for(resourceAdmin, as: resourceAdmin_name, url: registration_path(resourceAdmin_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+<div class="row">
+
+  <div class="input-field col s12">
+	<%= f.text_field :name, class:"",required: true %>
+	<%= f.label :name, class:"white-text" %>
+  </div>
+
+  <div class="input-field col s12">
+  	<%= f.email_field :email, class:"",required: true  %> 
+	<%= f.label :email, class:"white-text" %>
+  </div>
+
+  <div class="input-field col s12">
+  	<%= f.password_field :password, class:"",required: true %>
+	<%= f.label :password, class:"white-text" %>
+  </div>
+
+  <div class="input-field col s12">
+  	<%= f.password_field :password_confirmation, class:"" ,required: true %>
+	<%= f.label :password_confirmation, class:"white-text" %>
+  </div>
+
+</div>
+
+
+  <div class="top-space">
+
+  	<div class="row middle-xs">
+		<div class="col-xs-12 col-md-6 ">
+		    <div class="box">
+		        <%=f.submit "Register",class:"mwaves-effect waves-light btn"%>
+		    </div>
+		</div>
+
+		<div class="col-xs-12 col-md-6 ">
+		    <div class="box">
+		        <%= link_to "I have a count",new_user_session_path,class:"underline"%>
+		    </div>
+		</div>
+
+	</div>
+
+
+	</div>
+
+  <% end %>

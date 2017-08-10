@@ -1,0 +1,87 @@
+<% if notification.item.status == 1 %>
+
+
+
+<li class="collection-item avatar">
+
+      <i class="material-icons circle green">person</i>
+
+      <span class="title"><%= link_to "#{notification.item.user.name} #{notification.item.user.firs_last_name} #{notification.item.user.second_last_name} aplico a la vacante #{notification.item.vacante.name}" , notification.item.user , class:"black-text"  %></span>
+
+
+      <% if notification.item.user.university %>
+      	<p>Escuela: <%= TC::University.find(notification.item.user.university).universidad %> </p>
+
+      <% else %>
+      	<p>Escuela: No found </p>
+
+      <% end %>
+
+
+
+      <% if notification.item.user.carrer %>
+      	<p>Carrera: <%= TC::Carrer.find(notification.item.user.carrer).carrera %> </p>
+
+      <% else %>
+      	<p>Carrera: No found </p>
+
+      <% end %>  
+
+      <%= link_to notification_path(id: notification.id,notification:{viewed: true}),method: :put, class:"secondary-content" do %>
+            <i class="material-icons">check</i>
+
+      <% end %>
+
+
+</li>
+
+
+<% end %>
+
+
+
+
+
+
+
+
+<% if notification.item.status == 3 %>
+
+
+
+<li class="collection-item avatar">
+
+      <i class="material-icons circle blue">today</i>
+
+      <span class="title"><%= link_to "#{notification.item.user.name} #{notification.item.user.firs_last_name} #{notification.item.user.second_last_name} han pasado 4 meses desde su inicio, esta apunto de terminar sus practicas!!!!!" , notification.item.user , class:"black-text"  %></span>
+
+
+      <% if notification.item.user.university %>
+            <p>Escuela: <%= TC::University.find(notification.item.user.university).universidad %> </p>
+
+      <% else %>
+            <p>Escuela: No found </p>
+
+      <% end %>
+
+
+
+      <% if notification.item.user.carrer %>
+            <p>Carrera: <%= TC::Carrer.find(notification.item.user.carrer).carrera %> </p>
+
+      <% else %>
+            <p>Carrera: No found </p>
+
+      <% end %>  
+
+      <%= link_to notification_path(id: notification.id,notification:{viewed: true}),method: :put, class:"secondary-content" do %>
+            <i class="material-icons">check</i>
+
+      <% end %>
+
+
+</li>
+
+
+<% end %>
+

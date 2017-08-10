@@ -1,0 +1,54 @@
+
+
+<div class="row center-xs">
+
+	<div class="col-xs-12">
+
+		<div class="box z-depth-1">
+
+
+			<div class="">
+		     <%=form_tag "/search/search_students", method: :get, remote: true, id:"search-form" do  %>
+
+		      <div class="input-field col s3">
+		      	<%= select_tag :keywordUniversidad, options_for_select(TC::University.all.collect.collect{ |u| [u.universidad, u.id] }) ,include_blank: true %>
+
+		      	<label class="">University</label>
+		      </div>
+
+
+		      <div class="input-field col s3">
+		      	<%= select_tag :keywordCarrera, options_for_select(TC::Carrer.all.collect.collect{ |u| [u.carrera, u.id] }) ,include_blank: true %>
+
+		      	<label class="">Carrer</label>
+		      </div>
+
+
+		       <div class="input-field col s3">
+		      	<%= select_tag :keywordStatus, options_for_select(TC::Status.all.collect.collect{ |u| [u.status, u.id] }) ,include_blank: true %>
+
+		      	<label class="">Status</label>
+		      </div>
+
+
+		      <div class="input-field col s3">
+		      	<%=text_field_tag :keywordNombre, nil, placeholder: "By name", class:"labelBuscador" %>
+		      </div>
+
+
+		      
+
+
+          	   	  <button class="buttonBuscador" type="submit">Search</button>
+
+        	<% end %>
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+

@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body class="white-background">
+
+<!-- Buscador de estudiantes -->
+<div class="top-space">
+	<%= render "partials/buscadorEstudiantes" %>
+
+</div>
+
+
+<!-- Numero de estudiantes  -->
+<div class="text-center" >Número de estudiantes: 
+
+	<div class="line" id="how_many_usuarios"> 
+	<%= @how_many_usuarios%>
+	</div>  
+
+</div>
+
+
+<!-- preloader -->
+<%= render "partials/preloader" %>
+
+
+<!-- Todos los etudiantes  -->
+<div class="row">
+    <div class="col-xs-9">
+        <div class="box">
+            <div id="data"> <%= render @usuarios %> </div>
+
+            <div id="pagination" class="text-center"> <%= will_paginate @usuarios %> </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

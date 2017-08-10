@@ -1,0 +1,42 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+
+  <div class="input-field col s12">
+  	<%= f.email_field :email, class:"" %>
+  	<%= f.label :email, class:"white-text" %>
+    
+  </div>
+
+  <div class="input-field col s12">
+  	<%= f.password_field :password, class:"" %>
+  	<%= f.label :password,class:"white-text" %>
+    
+  </div>
+
+  
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field ">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="top-space">
+
+  	<div class="row middle-xs">
+		<div class="col-xs-12 col-md-6 ">
+		    <div class="box">
+		    	<%= f.submit "Log in", class:"mwaves-effect waves-light btn" %>
+		 		    
+		    </div>
+		</div>
+
+		
+
+	</div>
+
+
+	</div>
+
+  <% end %>

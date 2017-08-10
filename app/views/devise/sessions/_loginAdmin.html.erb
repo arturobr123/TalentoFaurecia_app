@@ -1,0 +1,46 @@
+<%= form_for(resourceAdmin, as: resourceAdmin_name, url: session_path(resourceAdmin_name)) do |f| %>
+
+
+<div class="row">
+  
+  <div class="input-field col s12">
+  	<%= f.email_field :email, class:"" %>
+  	<%= f.label :email, class:"white-text" %>
+    
+  </div>
+
+  <div class="input-field col s12">
+  	<%= f.password_field :password, autocomplete: "off", class:"" %>
+  	<%= f.label :password,class:"white-text" %>
+    
+  </div>
+
+</div>
+  
+
+  <div class="top-space">
+
+  	<div class="row middle-xs">
+		<div class="col-xs-12 col-md-6 ">
+		    <div class="box">
+		    	<%= f.submit "Log in", class:"mwaves-effect waves-light btn" %>
+
+          
+		 		    
+		    </div>
+		</div>
+
+    <div class="col-xs-12 col-md-6 ">
+        <div class="box">
+        <%= link_to "Students", new_registration_path(resource_name), class:"underline" %><br/>
+        </div>
+    </div>
+
+		
+
+	</div>
+
+
+	</div>
+
+  <% end %>

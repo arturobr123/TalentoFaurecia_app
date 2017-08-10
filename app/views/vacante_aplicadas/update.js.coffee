@@ -1,0 +1,1 @@
+Materialize.toast('Acabas de reclutar a un nuevo practicante, !Felicidades!', 4000)

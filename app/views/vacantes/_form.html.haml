@@ -1,0 +1,73 @@
+= form_for @vacante do |f|
+  - if @vacante.errors.any?
+    #error_explanation
+      %h4.text-center= "#{pluralize(@vacante.errors.count, "error")} prohibited this vacante from being saved:"
+      %ul.text-center
+        - @vacante.errors.full_messages.each do |message|
+          %li= message
+
+  .row.center-xs
+    .col-xs-9
+      .box
+
+        .row
+          .col.s12
+            .row.text-left
+              .div.input-field.col.s6
+                = f.text_field :name, autofocus: true, class:""
+                = f.label :name, class:"blue-text" 
+
+              .div.input-field.col.s6
+                =f.select :area, TC::Job_area.all.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
+                %label.blue-text Area de la vacante
+
+              .div.input-field.col.s6
+                = f.text_field :location, class:"" 
+                = f.label :location, class:"blue-text"
+
+
+
+              .div.input-field.col.s6
+                =f.select :planta, TC::Plant.all.collect { |u| [u.planta, u.id] }, include_blank: "", placeholder:"Placeholder"
+                %label.blue-text Planta
+
+              .div.input-field.col.s6 
+                =f.select :periodo_de_practica,@periodo_de_practica.map { |u| [u] }, include_blank: "", placeholder:"Placeholder" , required: true 
+                %label.blue-text Periodo de practica
+
+
+              .div.input-field.col.s6 
+                = f.text_field :Name_Hiring_Manager, class:"" 
+                = f.label :Name_Hiring_Manager, class:"blue-text"
+
+              
+
+              .div.input-field.full-width
+                = f.text_area :little_description, id:"textarea1", class:"anchoLetra materialize-textarea" 
+                = f.label :little_description, class:"blue-text"
+
+              .div.input-field.full-width
+                = f.text_area :description,id:"textarea1", class:"anchoLetra materialize-textarea"
+                = f.label :description, class:"blue-text"
+
+              .div.input-field.full-width
+                = f.text_area :missions_role,id:"textarea1", class:"anchoLetra materialize-textarea"
+                = f.label :missions_role, class:"blue-text"
+
+
+              .div.input-field.col.s12
+                = f.check_box :occupied
+                = f.label :occupied
+
+              .div.input-field.col.s12
+
+
+              .field.ocultar
+                = f.label :admin
+                = f.text_field :admin
+
+
+            .actions.top-space2
+              = f.submit 'Save', class:"waves-effect waves-light btn full-width"
+
+

@@ -1,0 +1,61 @@
+%body.white-background
+%p#notice= notice
+
+.row.center-xs
+  .col-xs-7
+    .box.text-left
+      %p
+        %b Name:
+        = @vacante.name
+      %p
+        %b Publication date:
+        = fechaBonita @vacante.created_at
+      %p
+        %b Area:
+        =TC::Job_area.find(@vacante.area).job_area
+        /=@vacante.job_area.job_area 
+      %p
+        %b Location:
+        = @vacante.location
+
+      %p
+        %b Summary:
+        = @vacante.description
+      %p
+        %b Missions role:
+        = @vacante.missions_role
+      %p
+        %b Name Hiring Manager:
+        = @vacante.Name_Hiring_Manager
+      %p
+        %b Periodo practica:
+        = @vacante.periodo_de_practica
+      %p
+        %b Planta:
+        =TC::Plant.find(@vacante.planta).planta
+      %p
+        %b Occupied:
+        = @vacante.occupied
+      %p
+        %b Admin:
+        = @vacante.admin.name
+
+      -if current_user
+        = form_for @vacante_aplicada do |f|
+
+          .ocultar        
+            = f.text_field :user_id, value: current_user.id
+          .ocultar
+            = f.text_field :vacante_id, value: @vacante.id
+    
+
+          .actions
+            = f.submit "Aplicar" ,class:"waves-effect waves-light btn full-width"
+
+
+
+
+
+/= link_to 'Edit', edit_vacante_path(@vacante)
+\|
+= link_to 'Back', vacantes_path

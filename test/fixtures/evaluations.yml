@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin: one
+  comments: MyText
+  user: one
+  candidato_potencial: false
+  english_level: 1
+  technical_skills: MyText
+  duration_training: MyString
+  rank_global_candidate: 1
+
+two:
+  admin: two
+  comments: MyText
+  user: two
+  candidato_potencial: false
+  english_level: 1
+  technical_skills: MyText
+  duration_training: MyString
+  rank_global_candidate: 1

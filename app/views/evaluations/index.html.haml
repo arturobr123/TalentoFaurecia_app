@@ -1,0 +1,44 @@
+%body.white-background
+
+%h4 Lista de evaluaciones
+
+=render 'partials/buscadorEvaluacionesAdmin'
+
+= render "partials/preloader" 
+
+%table
+  %thead
+    %tr
+      %th Admin
+
+      %th User
+
+      %th Rank global candidate
+
+      %th Candidato potencial
+
+      %th Date
+
+
+  %tbody#data
+    - @evaluations.each do |evaluation|
+      %tr.border-bottom
+        %td= evaluation.admin.name
+
+        %td= evaluation.user.name + " " + evaluation.user.firs_last_name + " " + evaluation.user.second_last_name
+
+        %td= TC::Rank_candidate.find(evaluation.rank_global_candidate).rank
+
+        %td= evaluation.candidato_potencial
+
+        %td= fechaBonita evaluation.created_at
+
+        %td= link_to 'Show', evaluation
+        %td= link_to 'Edit', edit_evaluation_path(evaluation)
+        %td= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' }
+
+#pagination.center
+  = will_paginate @evaluations
+
+%br
+

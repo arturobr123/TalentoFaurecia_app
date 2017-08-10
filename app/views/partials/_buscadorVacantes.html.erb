@@ -1,0 +1,45 @@
+
+
+<div class="row center-xs">
+
+	<div class="col-xs-10">
+
+		<div class="box z-depth-1">
+
+
+			<div class="">
+		     <%=form_tag "/search/create", method: :get, remote: true, id:"search-form" do  %>
+
+		      <div class="input-field col s4">
+		      	<%= select_tag :keywordArea, options_for_select(TC::Job_area.all.collect.collect{ |u| [u.job_area, u.id] }) ,include_blank: true %>
+
+		      	<label class="">Area</label>
+		      </div>
+
+
+
+		      <div class="input-field col s4">
+		      	<%=text_field_tag :keywordLocation, nil, placeholder: "By location", class:"labelBuscador" %>
+
+		      </div>
+
+
+		      <div class="input-field col s4">
+		      	<%=text_field_tag :keywordName, nil, placeholder: "By name", class:"labelBuscador" %>
+
+		      </div>
+
+
+          	   	  <button class="buttonBuscador" type="submit">Search</button>
+
+        	<% end %>
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+</div>
+

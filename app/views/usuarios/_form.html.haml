@@ -1,0 +1,112 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+
+
+  .row.center-xs
+    .col-xs-10
+      .box
+
+        .row
+          .col.s12
+            .row.text-left
+
+
+              .div.input-field.col.s4
+                = f.text_field :name, autofocus: true, class:"" 
+                = f.label :name, class:"blue-text"
+
+              .div.input-field.col.s4
+                = f.text_field :firs_last_name, class:"" 
+                = f.label :firs_last_name, class:"blue-text"
+
+              .div.input-field.col.s4
+                = f.text_field :second_last_name, class:"" 
+                = f.label :second_last_name, class:"blue-text"
+
+
+
+              .div.input-field.col.s4
+                = f.text_field :phone, class:"" 
+                = f.label :phone, class:"blue-text"
+
+              .div.input-field.col.s4
+                =f.select :sexo, @Sexos.map { |u| [u] }, include_blank: "Sexo", placeholder:"Placeholder"
+                %label.blue-text Sexo
+
+              .div.input-field.col.s4
+                =f.select :university, TC::University.all.collect { |u| [u.universidad, u.id] }, include_blank: "Universidad", placeholder:"Placeholder"
+                %label.blue-text Universidad
+
+
+
+              .div.input-field.col.s4
+                =f.select :carrer, TC::Carrer.all.collect { |u| [u.carrera, u.id] }, include_blank: "Carrera", placeholder:"Placeholder"
+                %label.blue-text Carrera
+
+              .div.input-field.col.s4
+                =f.select :duration_internship, TC::R1_12_range.all.collect { |u| [u.rango, u.id] }, include_blank: "Duracion Internship", placeholder:"Placeholder"
+                %label.blue-text Duracion Internship(meses)
+
+              .div.input-field.col.s4
+                =f.select :semester, TC::R1_12_range.all.collect { |u| [u.rango, u.id] }, include_blank: "Semestre", placeholder:"Placeholder"
+                %label.blue-text Semestre
+
+
+
+              .div.input-field.col.s4
+                =f.date_field :birthdate ,type:"text" , class:"datepicker birthday"
+                %label.blue-text Birthday
+
+              .div.input-field.col.s4
+                = f.text_field :graduation_year, class:"" 
+                = f.label :graduation_year, class:"blue-text"
+
+              .div.input-field.col.s4
+                =f.date_field :disponible_en ,type:"text" , class:"datepicker disponible"
+                %label.blue-text Disponible en
+
+
+
+              .div.input-field.col.s4
+                =f.select :estado_residencia, TC::Estado.all.collect { |u| [u.estado, u.id] }, include_blank: "Estado", placeholder:"Placeholder"
+                %label.blue-text Estado residencia
+
+              /cambiar por una tabla catalogo de 1 a 100
+              .div.input-field.col.s4 
+                = f.text_field :level_english, class:"" 
+                = f.label :level_english, class:"blue-text"
+
+              .div.col.s4
+                %div.file-field.input-field
+                  %div.btn
+                    %span
+                      CV
+                    =f.file_field(:CV, class: '')
+                  %div.file-path-wrapper
+                    %input.file-path.validate
+
+
+
+              .div.input-field.col.s4
+                =f.select :interest_area1, TC::Job_area.all.collect { |u| [u.job_area, u.id] }, include_blank: "Area", placeholder:"Placeholder"
+                %label.blue-text Area de interes 1
+              
+              .div.input-field.col.s4
+                =f.select :interest_area2, TC::Job_area.all.collect { |u| [u.job_area, u.id] }, include_blank: "Area", placeholder:"Placeholder"
+                %label.blue-text Area de interes 2
+
+              .div.input-field.col.s4
+                =f.select :interest_area3, TC::Job_area.all.collect { |u| [u.job_area, u.id] }, include_blank: "Area", placeholder:"Placeholder"
+                %label.blue-text Area de interes 3
+
+              
+              
+            .actions
+              = f.submit 'Save', class:"waves-effect waves-light btn full-width"
+
+

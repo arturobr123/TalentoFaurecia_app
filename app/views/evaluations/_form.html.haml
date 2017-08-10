@@ -1,0 +1,68 @@
+= form_for @evaluation do |f|
+  - if @evaluation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@evaluation.errors.count, "error")} prohibited this evaluation from being saved:"
+      %ul
+        - @evaluation.errors.full_messages.each do |message|
+          %li= message
+
+  .row.center-xs
+    .col-xs-9
+      .box
+
+        .row
+          .col.s12
+            .row.text-left
+
+              .div.input-field.col.s6
+                = f.label :admin,class:"blue-text"
+                = f.text_field :admin , value: "#{@admin.name}"
+
+              .div.input-field.col.s6
+                = f.label :estudiante,class:"blue-text"
+                = f.text_field :estudiante, value: "#{@user.name} " + "#{@user.firs_last_name} " + "#{@user.second_last_name}"
+
+
+
+              .div.input-field.col.s12
+                = f.label :comments,class:"blue-text"
+                = f.text_area :comments,id:"textarea1", class:"anchoLetra materialize-textarea"
+
+
+
+              .div.input-field.col.s12
+                = f.label :technical_skills,class:"blue-text"
+                = f.text_area :technical_skills,id:"textarea1", class:"anchoLetra materialize-textarea"
+
+
+              .div.input-field.col.s6
+                = f.label :english_level, class:"blue-text"
+                = f.text_field :english_level, class:"" 
+
+              .div.input-field.col.s6
+                = f.label :duration_training,class:"blue-text"
+                = f.text_field :duration_training
+
+
+
+              .div.input-field.col.s6
+                = f.check_box :candidato_potencial
+                = f.label :candidato_potencial
+
+              .div.input-field.col.s6
+                =f.select :rank_global_candidate, TC::Rank_candidate.all.collect { |u| [u.rank, u.id] }, include_blank: "", placeholder:"Placeholder"
+                %label.blue-text rank global candidate
+
+
+
+
+              .field.ocultar
+                = f.label :admin_id
+                = f.text_field :admin_id, value: "#{current_admin.id}"
+              .field.ocultar
+                = f.label :user_id
+                = f.text_field :user_id, value: @user.id
+
+
+            .actions
+              = f.submit 'Save',class:"waves-effect waves-light btn full-width"

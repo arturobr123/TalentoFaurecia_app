@@ -1,0 +1,22 @@
+.row
+  .col.m8
+    .card.z-depth-2
+      .card-content.black-text
+        %span.card-title
+          =user.name
+          =user.firs_last_name
+          =user.second_last_name
+          /=TC::Status.find(user.status).status
+          
+        .div
+          Escuela:
+          -if user.university
+            =TC::University.find(user.university).universidad
+
+        .div
+          Carrera:
+          -if user.carrer
+            =TC::Carrer.find(user.carrer).carrera
+              
+      .card-action.text-right
+        = link_to 'Ver', user ,class:"waves-effect waves-light btn"

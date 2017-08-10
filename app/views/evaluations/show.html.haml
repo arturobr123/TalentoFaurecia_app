@@ -1,0 +1,60 @@
+%body.white-background
+%p#notice= notice
+
+.row.center-xs
+  .col-xs-7
+    .box.text-left
+      .col.s12
+        .row
+          %div.input-field.col.s6
+            %p.line
+              %b Admin:
+              = @evaluation.admin.name
+
+          %div.input-field.col.s6
+            %p.line
+              %b User:
+              = @evaluation.user.name + " " + @evaluation.user.firs_last_name + " " + @evaluation.user.second_last_name
+
+          %div.input-field.col.s12
+            %p
+              %b Comments:
+              = @evaluation.comments
+
+          %div.input-field.col.s12
+            %p
+              %b Technical skills:
+              = @evaluation.technical_skills
+
+
+
+          %div.input-field.col.s6
+            %p
+              %b English level:
+              = @evaluation.english_level
+
+          %div.input-field.col.s6
+            %p
+              %b Duration training:
+              = @evaluation.duration_training
+
+
+
+          %div.input-field.col.s6
+            %p
+              %b Candidato potencial:
+              = @evaluation.candidato_potencial
+
+          %div.input-field.col.s6
+            %p
+              %b Rank global candidate:
+              = TC::Rank_candidate.find(@evaluation.rank_global_candidate).rank
+      
+      
+      
+      
+      
+
+      = link_to 'Edit', edit_evaluation_path(@evaluation)
+      \|
+      = link_to 'Back', evaluations_path

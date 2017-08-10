@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title></title>
+
+</head> 
+<body class=" main-background" >
+
+<div class="full-height row middle-xs white-text center-xs no-margin">
+<div class="col-xs-10 col-sm-8 col-md-6 col-lg-7">
+    <div class="box">
+        <div class="big-padding signin-background white-text bordeRedondo">
+          <img src="<%= asset_path('logoFaurecia.png') %>" alt="Faurecia">
+       <!--   <h4 class= "no-margin bold white-text">Faurecia</h4>  -->
+          <p class= "no-margin white-text">Students</p>
+            <div class="">
+              <%= render "devise/registrations/new" %>
+
+              <%= link_to "AdminRegister", adminRegister_path ,class:"underline"  %>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+</body>
+</html>

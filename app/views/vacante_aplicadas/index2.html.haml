@@ -1,0 +1,22 @@
+%h1 Listing vacante_aplicadas
+
+%table
+  %thead
+    %tr
+      %th user
+      %th vacante
+      %th
+
+  %tbody
+    - @vacante_aplicadas.each do |vacante_aplicada|
+      %tr
+        %td= vacante_aplicada.vacante.id
+        %td= vacante_aplicada.user.id
+
+        %td= link_to 'Show', vacante_aplicada
+        %td= link_to 'Edit', edit_vacante_aplicada_path(vacante_aplicada)
+        %td= link_to 'Destroy', vacante_aplicada, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Vacante aplicada', new_vacante_aplicada_path

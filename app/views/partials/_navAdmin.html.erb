@@ -1,0 +1,67 @@
+
+<nav>
+    <div class="nav-wrapper">
+       <%= link_to "Faurecia Admin" ,root_path, class:"brand-logo", style: "text-decoration:none;"%>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+
+        <li><%= link_to "Vacantes aplicadas" , vacante_aplicadas_path ,class:"white-text right-space"%></li>
+        <li><%= link_to "Evaluaciones" , evaluations_path ,class:"white-text right-space"%></li>
+        <li><%= link_to "Vacantes" , vacantes_path ,class:"white-text right-space"%></li>
+
+        <li><%= link_to "Nueva vacante" , new_vacante_path ,class:"white-text right-space"%></li>
+
+
+
+        <li> 
+
+          <%= link_to "/notifications" , class:"white-text waves-effect waves-block waves-light", id:"notificationButton",remote: true,data: {type: "script"} , for:"#modal_notifications" do%>
+
+          <!--  <%=current_admin.unviewed_notifications_count  %>   -->
+
+          <i class="material-icons iconoNotificaciones">notifications</i> 
+
+          <small class="notification-badge" id="notification"><%=current_admin.unviewed_notifications_count  %></small>
+
+          <% end %> 
+        </li>
+
+
+        <li> <%= link_to "Sign out" , destroy_user_session_path, method: :delete ,class:"white-text"%> </li>
+
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal de la notificaciones -->
+<a id="modal_notifications" class=" modal-trigger ocultar" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+
+    <div class="modal-content">
+      <h4>Notificaciones</h4>
+
+      <!-- aqui en el id=notifications se concatenan todas las notificaciones -->
+      <ul class="collection" id="notifications">
+      </ul>
+
+   </div>
+    
+    <div class="modal-footer">
+      <%= link_to "Ver mas " , notifications_path ,class:"waves-effect waves-green btn-flat underline" %>
+
+      <%= link_to "marcar todas las notificaciones como vistas " , view_all_notifications_path ,class:"waves-effect waves-green btn-flat" %>
+    </div>
+
+  </div>

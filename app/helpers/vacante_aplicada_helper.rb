@@ -1,0 +1,2 @@
+module VacanteAplicadaHelper
+end

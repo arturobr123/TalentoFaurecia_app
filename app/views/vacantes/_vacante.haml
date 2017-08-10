@@ -1,0 +1,24 @@
+
+%article.large-padding.white.top-space.full-width.z-depth-2
+  /.line-block.text-right=post.area
+  .text-left.relative.lighter
+    =vacante.name
+    .line-block.text-right
+      =fechaBonita vacante.created_at
+
+    .div
+      =vacante.location
+
+    .div
+      =TC::Job_area.find(vacante.area).job_area
+
+      
+
+         
+  %p.top-space.text-left.agregarMargenArriba.letraPost.bold-text=vacante.little_description
+
+  .actions.text-right
+    = link_to "Ver" , vacante, class:"waves-effect waves-light btn"
+
+
+

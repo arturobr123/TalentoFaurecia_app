@@ -1,0 +1,10 @@
+<nav>
+    <div class="nav-wrapper">
+       <%= link_to "Faurecia Students" ,root_path, class:"brand-logo", style: "text-decoration:none;"%>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "Vacantes" , root_path, class:"white-text right-space"%></li>
+        <li> <%= link_to current_user.name , edit_user_path(current_user), class:"white-text right-space"%> </li>
+        <li>  <%= link_to "Sign out" , destroy_user_session_path, method: :delete ,class:"white-text"%>   </li>
+      </ul>
+    </div>
+ </nav>

@@ -1,0 +1,11 @@
+
+<%= notice%>
+<h1>Main#homeAdmin</h1>
+<p>Find me in app/views/main/home.html.erb</p>
+<p>YEAAHH!!!!</p>
+
+<% if admin_signed_in? %>
+	<%= link_to "exit_to_app" , destroy_user_session_path, method: :delete%> 
+<% end %>
+
+

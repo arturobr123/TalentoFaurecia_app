@@ -1,0 +1,12 @@
+%table
+	- @vacantess.each do |vacante|
+		%tr.border-bottom
+			%td= vacante.name
+			%td=TC::Job_area.find(vacante.area).job_area 
+			%td= vacante.location
+			%td= vacante.occupied
+			%td= vacante.admin.name
+			%td=fechaBonita vacante.created_at
+			%td= link_to 'Show', vacante
+			%td= link_to 'Edit', edit_vacante_path(vacante)
+			%td= link_to 'Destroy', vacante, method: :delete, data: { confirm: 'Are you sure?' }

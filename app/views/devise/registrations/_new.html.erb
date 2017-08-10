@@ -1,0 +1,58 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="input-field col s4">
+	<%= f.text_field :name, class:"" , autofocus: true %>
+	<%= f.label :name, class:"white-text" %>
+  </div>
+
+
+  <div class="input-field col s4">
+	<%= f.text_field :firs_last_name, class:"" %>
+	<%= f.label :firs_last_name, class:"white-text" %>
+
+  </div>
+
+
+  <div class="input-field col s4">
+	<%= f.text_field :second_last_name, class:"" %>
+	<%= f.label :second_last_name, class:"white-text" %>
+  </div>
+
+
+  <div class="input-field col s4">
+  	<%= f.email_field :email, class:""  %>
+	<%= f.label :email, class:"white-text" %>
+  </div>
+
+  <div class="input-field col s4">
+  	<%= f.password_field :password, class:"" %>
+	<%= f.label :password, class:"white-text" %>
+  </div>
+
+  <div class="input-field col s4">
+  	<%= f.password_field :password_confirmation, class:"" %>
+	<%= f.label :password_confirmation, class:"white-text" %>
+  </div>
+
+
+  <div class="top-space">
+
+
+	<div class="">
+      <div class="col s6">
+      	 <%=f.submit "Register",class:"mwaves-effect waves-light btn"%>
+      </div>
+      <div class="col s6">
+      	 <%= link_to "I have a count",new_user_session_path,class:"underline"%>
+      </div>
+    </div>
+
+
+
+
+
+
+	</div>
+
+  <% end %>

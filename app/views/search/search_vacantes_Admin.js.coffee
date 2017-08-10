@@ -1,0 +1,5 @@
+$("#data").html("<%=j render partial:'vacantes/vacanteLista', object: @vacantess, as: 'vacante' %>")
+$(".preloader-wrapper").removeClass("active")
+$(".preloaderDiv").css("display": "none")
+$("#pagination").html("<%= j will_paginate @vacantess ,:remote =>true %>")
+$('.pagination a').attr('data-remote', 'true')

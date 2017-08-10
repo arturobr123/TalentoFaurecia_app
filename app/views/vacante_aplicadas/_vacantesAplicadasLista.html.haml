@@ -1,0 +1,19 @@
+%table
+	- @vacante_aplicadas.each do |vacante_aplicada|
+		%tr.border-bottom
+
+			%td= link_to vacante_aplicada.user.name + " " +  vacante_aplicada.user.firs_last_name + " " + vacante_aplicada.user.second_last_name, vacante_aplicada.user, class:""
+
+			%td= link_to vacante_aplicada.vacante.name, vacante_aplicada.vacante
+			
+			/%td= TC::Status.find(vacante_aplicada.status).status
+			%td= TC::Status.find(vacante_aplicada.user.status).status
+
+			%td=fechaBonita vacante_aplicada.created_at
+
+
+			/%td= link_to 'Edit', edit_vacante_aplicada_path(vacante_aplicada)
+			%td= link_to 'Edit', edit_vacante_aplicada_path(id: vacante_aplicada ,idUsario: vacante_aplicada.user.id)
+
+
+			%td= link_to 'Destroy', vacante_aplicada, method: :delete, data: { confirm: 'Are you sure?' }

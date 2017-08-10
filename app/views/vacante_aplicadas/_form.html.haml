@@ -1,0 +1,25 @@
+= form_for @vacante_aplicada , method: "patch" do |f| #form_for  @usuario
+  - if @vacante_aplicada.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@vacante_aplicada.errors.count, "error")} prohibited this vacante_aplicada from being saved:"
+      %ul
+        - @vacante_aplicada.errors.full_messages.each do |message|
+          %li= message
+
+  .row.center-xs
+    .col-xs-10
+      .box
+
+        .row
+          .col.s12
+            .row.text-left
+
+              .div.input-field.col.s12
+                = f.select :status, TC::Status.all.collect { |u| [u.status, u.id] }, include_blank: "Status", placeholder:"Placeholder"
+                %label.blue-text Status
+
+              .ocultar
+                = f.text_field :user_id , value: "#{@vacante_aplicada.user.id}"
+
+            .actions
+              = f.submit 'Save',class:"waves-effect waves-light btn full-width"

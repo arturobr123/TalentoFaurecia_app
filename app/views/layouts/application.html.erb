@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FaureciaApp</title>
+    <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
+          
+
+
+
+  </head>
+
+  <body>
+
+    
+ <!--  Barra de navegacion de estudiantes (usuarios)  -->    
+    <% if user_signed_in? %>  
+
+          <%= render "partials/nav" %>
+
+      
+        <main class="mdl-layout__content">
+          <div class="page-content">  <%= yield %> </div>
+        </main>
+
+
+    <% else %>
+
+
+    <% end %> 
+
+
+ <!--  Barra de navegacion de administradores  -->
+    <% if admin_signed_in? %>  
+
+        
+          <%= render "partials/navAdmin" %>
+
+      
+        <main class="mdl-layout__content">
+          <div class="page-content">  <%= yield %> </div>
+        </main>
+
+
+    <% else %>
+
+
+    <% end %> 
+
+
+    <% if !current_user and !current_admin %>
+
+      <%= yield %>
+
+    <% end %>
+
+
+
+
+  </body>
+</html>

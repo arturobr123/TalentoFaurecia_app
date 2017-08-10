@@ -1,0 +1,40 @@
+%body.white-background
+
+%h4 Lista de vacantes
+
+=render 'partials/buscadorVacantesAdmin'
+
+= render "partials/preloader" 
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Area
+      %th Location
+      %th Occupied
+      %th Admin
+      %th Date
+
+      
+
+  %tbody#data
+    %div
+      - @vacantess.each do |vacante|
+        %tr.border-bottom
+          %td= vacante.name
+          %td=TC::Job_area.find(vacante.area).job_area 
+          %td= vacante.location
+          %td= vacante.occupied
+          %td= vacante.admin.name
+          %td=fechaBonita vacante.created_at
+          %td= link_to 'Show', vacante
+          %td= link_to 'Edit', edit_vacante_path(vacante)
+          %td= link_to 'Destroy', vacante, method: :delete, data: { confirm: 'Are you sure?' }
+
+#pagination.center
+  = will_paginate @vacantess
+
+%br
+
+/= link_to 'Nueva Vacante', new_vacante_path

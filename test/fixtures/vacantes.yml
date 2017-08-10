@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  function: MyText
+  location: MyText
+  little_summary: MyText
+  summary: MyText
+  missions_role: MyText
+  occupied: false
+  admin: one
+
+two:
+  name: MyText
+  function: MyText
+  location: MyText
+  little_summary: MyText
+  summary: MyText
+  missions_role: MyText
+  occupied: false
+  admin: two

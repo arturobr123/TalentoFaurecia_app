@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vacante: 
+  user: 
+  status: 1
+
+two:
+  vacante: 
+  user: 
+  status: 1
