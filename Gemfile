@@ -10,7 +10,6 @@ end
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -54,9 +53,11 @@ gem "paperclip" ,"~> 5.0.0beta1"
 #wilpaginate para paginacion
 gem "will_paginate"
 
-
-#para llenar el archivo seeds.rb con la informacion de la bd
+#para llenar el archivo seeds.rb con la informacion de la bd, informacion semilla
 gem 'seed_dump'
+
+#Amazon Web Service
+gem 'aws-sdk', '~> 2.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -74,11 +75,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'sqlite3'
+
 end
 
-group :development do
-  gem 'sqlite3'
-end
 
 group :production do
   gem 'pg'
