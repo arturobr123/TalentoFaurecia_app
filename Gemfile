@@ -55,6 +55,9 @@ gem "paperclip" ,"~> 5.0.0beta1"
 gem "will_paginate"
 
 
+#para llenar el archivo seeds.rb con la informacion de la bd
+gem 'seed_dump'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

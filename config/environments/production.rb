@@ -25,16 +25,6 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  db = URI.parse(ENV['DATABASE_URL'] || 'postgres://qqaoagilqisqzh:d22ff195c4b3bd9aebc4ee4ab32b56cdd6228dd8342584db4cc630b70c0ac400@ec2-54-163-227-202.compute-1.amazonaws.com:5432/devcuede6s4igv')
-
-  ActiveRecord::Base.establish_connection(
-    :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-    :host     => db.host,
-    :username => db.user,
-    :password => db.password,
-    :database => db.path[1..-1],
-    :encoding => 'utf8'
-  )
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
