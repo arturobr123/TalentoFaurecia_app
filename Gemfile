@@ -59,6 +59,8 @@ gem 'seed_dump'
 #Amazon Web Service
 gem 'aws-sdk', '~> 2.3'
 
+#redis
+gem 'redis', '~> 3.2'
 
 
 # Use Capistrano for deployment
