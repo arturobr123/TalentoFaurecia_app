@@ -22,7 +22,7 @@ module Notificable
 		if self.statusContratado?
 			#JOB => mandar notificaciones asyncronas
 			puts "send_notification_admin_finish_internship___Notificable"
-			NotificationSenderJob.set(wait: 1.minutes).perform_later(self)
+			NotificationSenderJob.set(wait: 4.months).perform_later(self)
 			#NotificationSenderJob.perform_later(self)
 			
 		end

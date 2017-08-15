@@ -19,7 +19,7 @@
 
               .div.input-field.col.s6
                 =f.select :area, TC::Job_area.all.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
-                %label.blue-text Area de la vacante
+                %label.blue-text Area a la que pertenece la vacante
 
               .div.input-field.col.s6
                 = f.text_field :location, class:"" 
@@ -31,9 +31,14 @@
                 =f.select :planta, TC::Plant.all.collect { |u| [u.planta, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Planta
 
-              .div.input-field.col.s6 
-                =f.select :periodo_de_practica,@periodo_de_practica.map { |u| [u] }, include_blank: "", placeholder:"Placeholder" , required: true 
-                %label.blue-text Periodo de practica
+              .div.input-field.col.s3 
+                =f.select :mes_inicio, TC::Month.all.collect { |u| [u.mes, u.id] }, include_blank: "", placeholder:"Placeholder"
+                %label.blue-text Mes de inicio
+
+              .div.input-field.col.s3 
+                =f.select :mes_fin, TC::Month.all.collect { |u| [u.mes, u.id] }, include_blank: "", placeholder:"Placeholder"
+                %label.blue-text Mes fin
+
 
 
               .div.input-field.col.s6 
@@ -42,9 +47,6 @@
 
               
 
-              .div.input-field.full-width
-                = f.text_area :little_description, id:"textarea1", class:"anchoLetra materialize-textarea" 
-                = f.label :little_description, class:"blue-text"
 
               .div.input-field.full-width
                 = f.text_area :description,id:"textarea1", class:"anchoLetra materialize-textarea"

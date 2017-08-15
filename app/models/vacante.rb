@@ -4,9 +4,11 @@ class Vacante < ApplicationRecord
   scope :no_occupied, -> {where(occupied:false)}
   
   #belongs_to :job_area, class_name: "TC::Job_area"
-  validates :periodo_de_practica ,presence: true
   validates :area, presence: true
   validates :planta, presence: true
+
+  validates :mes_inicio, presence: true
+  validates :mes_fin, presence: true
 
   has_many :vacantes_aplicadas
     

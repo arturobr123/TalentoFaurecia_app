@@ -29,7 +29,9 @@
         = @vacante.Name_Hiring_Manager
       %p
         %b Periodo practica:
-        = @vacante.periodo_de_practica
+        =TC::Month.find(@vacante.mes_inicio).mes
+        a
+        =TC::Month.find(@vacante.mes_fin).mes
       %p
         %b Planta:
         =TC::Plant.find(@vacante.planta).planta

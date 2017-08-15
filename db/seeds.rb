@@ -4,7 +4,41 @@ TC::Carrer.create!([
   {carrera: "Ingenieria en Logistica"},
   {carrera: "Administracion de empresas"},
   {carrera: "Banca e Inversiones"},
-  {carrera: "Mercadotecnia"}
+  {carrera: "Mercadotecnia"},
+  {carrera: "Administración de hoteles y restaurantes"},
+  {carrera: "Negocios internacionales"},
+  {carrera: "Economía"},
+  {carrera: "Contaduría pública"},
+  {carrera: "Mercadotecnia"},
+  {carrera: "Animación digital"},
+  {carrera: "Diseño de información visual"},
+  {carrera: "Comunicaciones"},
+  {carrera: "Diseño"},
+  {carrera: "Derecho"},
+  {carrera: "Ingeniería ambiental"},
+  {carrera: "Ingeniería civil"},
+  {carrera: "Ingeniería en electrónica"},
+  {carrera: "Ingeniería en logística"},
+  {carrera: "Ingeniería industrial"},
+  {carrera: "Ingeniería mecánica"},
+  {carrera: "Ingeniería en mecatrónica"},
+  {carrera: "Ingeniería química"},
+  {carrera: "Psicología"},
+  {carrera: "Relaciones internacionales"},
+  {carrera: "Actuaría"},
+  {carrera: "Tecnologías de la información"},
+  {carrera: "Finanzas"},
+  {carrera: "Publicidad"},
+  {carrera: "Ingeniería en diseño automotriz"},
+  {carrera: "Fisica"},
+  {carrera: "Robótica"},
+  {carrera: "Ingeniería en desarrollo sustentable"},
+  {carrera: "Ingeniería textil"},
+  {carrera: "Pedagogía"},
+  {carrera: "Turismo"},
+  {carrera: "Ingeniería en gestión empresarial"},
+  {carrera: "Licenciatura en lenguas"},
+  {carrera: "Licenciatura en matemática aplicada"}
 ])
 TC::Estado.create!([
   {estado: "Aguascalientes"},
@@ -42,11 +76,32 @@ TC::Estado.create!([
   {estado: "Zacatecas"}
 ])
 TC::Job_area.create!([
-  {job_area: "Engineering"},
-  {job_area: "Finance"},
-  {job_area: "Marketing"},
-  {job_area: "Operations"},
-  {job_area: "Information Tecnology"}
+  {job_area: "Producción"},
+  {job_area: "Finanzas"},
+  {job_area: "Recursos humanos"},
+  {job_area: "Compras"},
+  {job_area: "IT"},
+  {job_area: "Logística"},
+  {job_area: "Manufactura e ingeniería"},
+  {job_area: "Mantenimiento"},
+  {job_area: "Calidad"},
+  {job_area: "Programas"},
+  {job_area: "Investigación y desarrollo"},
+  {job_area: "Ventas"}
+])
+TC::Month.create!([
+  {mes: "Enero"},
+  {mes: "Febrero"},
+  {mes: "Marzo"},
+  {mes: "Abril"},
+  {mes: "Mayo"},
+  {mes: "Junio"},
+  {mes: "Julio"},
+  {mes: "Agosto"},
+  {mes: "Septiembre"},
+  {mes: "Octubre"},
+  {mes: "NOviembre"},
+  {mes: "Diciembre"}
 ])
 TC::Plant.create!([
   {planta: "Frames"},
@@ -92,5 +147,20 @@ TC::University.create!([
   {universidad: "UPAEP"},
   {universidad: "Tec de Monterrey Pueba"},
   {universidad: "BUAP"},
-  {universidad: "IBERO"}
+  {universidad: "IBERO"},
+  {universidad: "ITP"},
+  {universidad: "UVM"},
+  {universidad: "UNAM"},
+  {universidad: "IPN"},
+  {universidad: "La Salle"},
+  {universidad: "ITH"},
+  {universidad: "ITS"},
+  {universidad: "Universidad Autónoma de Coahuila"},
+  {universidad: "Instituto Tecnológico de SLP"},
+  {universidad: "Universidad Tecnológica SLP"},
+  {universidad: "Universidad Autónoma de SLP"},
+  {universidad: "ITQ"},
+  {universidad: "Instituto Tecnológico Superior de Irapuato"},
+  {universidad: "Instituto Tecnológico de León"},
+  {universidad: "Universidad la Salle Bajio"}
 ])

@@ -36,13 +36,16 @@
 
 
               .div.input-field.col.s6
-                = f.label :english_level, class:"blue-text"
-                = f.text_field :english_level, class:"" 
+                = f.label :english_level_50_to_100, class:"blue-text"
+                = f.text_field :english_level, class:""
 
               .div.input-field.col.s6
-                = f.label :duration_training,class:"blue-text"
-                = f.text_field :duration_training
+                =f.select :rank_global_candidate, TC::Rank_candidate.all.collect { |u| [u.rank, u.id] }, include_blank: "", placeholder:"Placeholder"
+                %label.blue-text rank global candidate 
 
+              /.div.input-field.col.s6
+              /  = f.label :duration_training,class:"blue-text"
+              /  = f.text_field :duration_training
 
 
               .div.input-field.col.s6
@@ -50,8 +53,7 @@
                 = f.label :candidato_potencial
 
               .div.input-field.col.s6
-                =f.select :rank_global_candidate, TC::Rank_candidate.all.collect { |u| [u.rank, u.id] }, include_blank: "", placeholder:"Placeholder"
-                %label.blue-text rank global candidate
+
 
 
 

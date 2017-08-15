@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808183431) do
+ActiveRecord::Schema.define(version: 20170815145401) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20170808183431) do
 
   create_table "job_areas", force: :cascade do |t|
     t.text "job_area", null: false
+  end
+
+  create_table "months", force: :cascade do |t|
+    t.text "mes", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -156,6 +160,8 @@ ActiveRecord::Schema.define(version: 20170808183431) do
     t.text     "Name_Hiring_Manager"
     t.integer  "job_area_id"
     t.integer  "planta"
+    t.integer  "mes_inicio"
+    t.integer  "mes_fin"
     t.index ["admin_id"], name: "index_vacantes_on_admin_id"
     t.index ["job_area_id"], name: "index_vacantes_on_job_area_id"
   end
