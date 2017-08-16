@@ -11,22 +11,22 @@
 		     <%=form_tag "/search/search_evaluaciones_Admin", method: :get, remote: true, id:"search-form" do  %>
 
 		      <div class="input-field col s2">
-		      	<%=text_field_tag :keywordUserName, nil, placeholder: "By name ", class:"labelBuscador" %>
+		      	<%=text_field_tag :keywordUserName, nil, placeholder: "Por nombre ", class:"labelBuscador" %>
 		      </div>
 
 		      <div class="input-field col s2">
-		      	<%=text_field_tag :keywordUser_1_lastname, nil, placeholder: "lastname ", class:"labelBuscador" %>
+		      	<%=text_field_tag :keywordUser_1_lastname, nil, placeholder: "Apellido paterno ", class:"labelBuscador" %>
 		      </div>
 
 		      <div class="input-field col s2">
-		      	<%=text_field_tag :keywordUser_2_lastname, nil, placeholder: "2nd last name", class:"labelBuscador" %>
+		      	<%=text_field_tag :keywordUser_2_lastname, nil, placeholder: "Apellido materno", class:"labelBuscador" %>
 		      </div>
 
 
 		      <div class="input-field col s2">
 		      	<%= select_tag :keywordGlobalCandidate, options_for_select(TC::Rank_candidate.all.collect{ |u| [u.rank, u.id] }) ,include_blank: true %>
 
-		      	<label class="">Rank</label>
+		      	<label class="">Rango</label>
 		      </div>
 
 

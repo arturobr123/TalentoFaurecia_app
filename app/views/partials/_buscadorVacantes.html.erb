@@ -11,7 +11,7 @@
 		     <%=form_tag "/search/create", method: :get, remote: true, id:"search-form" do  %>
 
 		      <div class="input-field col s4">
-		      	<%= select_tag :keywordArea, options_for_select(TC::Job_area.all.collect.collect{ |u| [u.job_area, u.id] }) ,include_blank: true %>
+		      	<%= select_tag :keywordArea, options_for_select(TC::Job_area.all.ordenados.collect{ |u| [u.job_area, u.id] }) ,include_blank: true %>
 
 		      	<label class="">Area</label>
 		      </div>
@@ -19,18 +19,18 @@
 
 
 		      <div class="input-field col s4">
-		      	<%=text_field_tag :keywordLocation, nil, placeholder: "By location", class:"labelBuscador" %>
+		      	<%=text_field_tag :keywordLocation, nil, placeholder: "Por locación", class:"labelBuscador" %>
 
 		      </div>
 
 
 		      <div class="input-field col s4">
-		      	<%=text_field_tag :keywordName, nil, placeholder: "By name", class:"labelBuscador" %>
+		      	<%=text_field_tag :keywordName, nil, placeholder: "Por nombre", class:"labelBuscador" %>
 
 		      </div>
 
 
-          	   	  <button class="buttonBuscador" type="submit">Search</button>
+          	   	  <button class="buttonBuscador" type="submit">Buscar</button>
 
         	<% end %>
 			</div>

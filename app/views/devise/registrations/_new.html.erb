@@ -2,21 +2,21 @@
   <%= devise_error_messages! %>
 
   <div class="input-field col s4">
-	<%= f.text_field :name, class:"" , autofocus: true %>
-	<%= f.label :name, class:"white-text" %>
+	<%= f.text_field :name, class:"" , autofocus: true, id:"name" %>
+	<%= f.label :nombre, class:"white-text", for:"name" %>
   </div>
 
 
   <div class="input-field col s4">
-	<%= f.text_field :firs_last_name, class:"" %>
-	<%= f.label :firs_last_name, class:"white-text" %>
+	<%= f.text_field :firs_last_name, class:"", id:"firs_last_name" %>
+	<%= f.label :apellido_paterno, class:"white-text", for:"firs_last_name" %>
 
   </div>
 
 
   <div class="input-field col s4">
-	<%= f.text_field :second_last_name, class:"" %>
-	<%= f.label :second_last_name, class:"white-text" %>
+	<%= f.text_field :second_last_name, class:"", id:"second_last_name" %>
+	<%= f.label :apellido_materno, class:"white-text", for:"second_last_name" %>
   </div>
 
 
@@ -41,10 +41,10 @@
 
 	<div class="">
       <div class="col s6">
-      	 <%=f.submit "Register",class:"mwaves-effect waves-light btn"%>
+      	 <%=f.submit "Registrar",class:"mwaves-effect waves-light btn"%>
       </div>
       <div class="col s6">
-      	 <%= link_to "I have a count",new_user_session_path,class:"underline"%>
+      	 <%= link_to "Ya tengo cuenta",new_user_session_path,class:"underline"%>
       </div>
     </div>
 

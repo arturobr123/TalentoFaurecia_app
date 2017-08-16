@@ -14,22 +14,26 @@
           .col.s12
             .row.text-left
               .div.input-field.col.s6
-                = f.text_field :name, autofocus: true, class:""
-                = f.label :name, class:"blue-text" 
+                = f.text_field :name, autofocus: true, class:"" ,id:"name"
+                = f.label :Nombre_vacante, class:"blue-text", for:"name"
 
               .div.input-field.col.s6
-                =f.select :area, TC::Job_area.all.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
+                =f.select :area, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Area a la que pertenece la vacante
 
-              .div.input-field.col.s6
-                = f.text_field :location, class:"" 
-                = f.label :location, class:"blue-text"
-
 
 
               .div.input-field.col.s6
-                =f.select :planta, TC::Plant.all.collect { |u| [u.planta, u.id] }, include_blank: "", placeholder:"Placeholder"
+                = f.text_field :location, class:"" , id:"location"
+                = f.label :locación, class:"blue-text", for:"location"
+
+
+              .div.input-field.col.s6
+                =f.select :planta, TC::Plant.all.ordenados.collect { |u| [u.planta, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Planta
+
+
+
 
               .div.input-field.col.s3 
                 =f.select :mes_inicio, TC::Month.all.collect { |u| [u.mes, u.id] }, include_blank: "", placeholder:"Placeholder"
@@ -39,11 +43,9 @@
                 =f.select :mes_fin, TC::Month.all.collect { |u| [u.mes, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Mes fin
 
-
-
               .div.input-field.col.s6 
-                = f.text_field :Name_Hiring_Manager, class:"" 
-                = f.label :Name_Hiring_Manager, class:"blue-text"
+                = f.text_field :Name_Hiring_Manager, class:"", id:"Name_Hiring_Manager"
+                = f.label :Nombre_Hiring_Manager, class:"blue-text", for:"Name_Hiring_Manager"
 
               
 
@@ -58,8 +60,8 @@
 
 
               .div.input-field.col.s12
-                = f.check_box :occupied
-                = f.label :occupied
+                = f.check_box :occupied, id:"occupied"
+                = f.label :ocupado, for:"occupied"
 
               .div.input-field.col.s12
 
