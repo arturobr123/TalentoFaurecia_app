@@ -84,8 +84,23 @@ Rails.application.configure do
   }
 
 
+  config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.default_url_options = { :host => "https://faurecia-students.herokuapp.com" }
+
+
+  ActionMailer::Base.smtp_settings = {
+
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :authentication => :plain,
+    :username => 'app74628088@heroku.com',
+    :password => 'televison1',
+    :domain => 'heroku.com',
+    :enable_starttls_auto => true
+
+
+  }
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
