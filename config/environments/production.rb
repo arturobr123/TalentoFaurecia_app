@@ -83,6 +83,10 @@ Rails.application.configure do
     }
   }
 
+
+
+  config.action_mailer.default_url_options = { :host => "https://faurecia-students.herokuapp.com" }
+
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
