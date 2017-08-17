@@ -13,8 +13,16 @@ $(document).on "turbolinks:load page:fetch", ()->
 		selector = $(this).attr("for")     #para obtener el id de modal notifications
 		$(selector).click()                #y darle click para abrirlo y mostrar las notificaciones
 		
-		ev.preventDefault() if $("#notifications").hasClass("active")
+		if $("#notifications").hasClass("active")
+			ev.preventDefault()
+		else
+			$(".preloader_notifications").addClass("active")
+			$(".preloaderDivNotifications").css("display": "inline")
+
 		
+		
+
+
 		$("#notifications").toggleClass("active")
 		console.log("notification main.coffee")
 		
