@@ -4,7 +4,7 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, presence: true, length: {in: 3..50}
+  #validates :name, presence: true, length: {in: 3..50}
 
   has_many :vacantes
   has_many :evaluations

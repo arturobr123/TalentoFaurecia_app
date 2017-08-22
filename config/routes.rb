@@ -18,9 +18,8 @@ Rails.application.routes.draw do
   resources :vacante_aplicadas
 
 
+  devise_for :admins,controllers: { registrations: 'admins/registrations' }
 
-
-  devise_for :admins
   devise_for :users
 
   get "main/adminRegister" => 'main#adminRegister', :as => :adminRegister
