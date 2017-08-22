@@ -19,8 +19,6 @@ $(document).on "turbolinks:load page:fetch", ()->
 			$(".preloaderDivNotifications").css("display": "inline")
 
 		
-		
-
 
 		$("#notifications").toggleClass("active")
 		console.log("notification main.coffee")
