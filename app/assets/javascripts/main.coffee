@@ -7,7 +7,6 @@ $(document).on "turbolinks:load page:fetch", ()->
 
 	console.log("main.coffee")
 
-
 	$("#notificationButton").on "click", (ev)->
 
 		selector = $(this).attr("for")     #para obtener el id de modal notifications
@@ -38,6 +37,11 @@ $(document).on "turbolinks:load page:fetch", ()->
 
 	$('.datepicker.birthday').pickadate(selectMonths: true, selectYears: 54)
 
-	$('.modal-trigger').leanModal();
+	$('.modal-trigger').leanModal()
+
+	$('.dropdown-button').dropdown()
+
+
+	
 
 

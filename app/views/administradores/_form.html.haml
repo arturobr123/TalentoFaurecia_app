@@ -1,0 +1,44 @@
+= form_for @admin do |f|
+  - if @admin.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin.errors.count, "error")} prohibited this admin from being saved:"
+      %ul
+        - @admin.errors.full_messages.each do |message|
+          %li= message
+
+
+  .row.center-xs
+    .col-xs-10
+      .box
+
+        .row
+          .col.s12
+            .row.text-left
+
+
+              .div.input-field.col.s6
+                = f.text_field :name, autofocus: true, class:"" ,id:"name"
+                = f.label :nombre, class:"blue-text", for:"name"
+
+              .div.input-field.col.s6
+                = f.text_field :email, class:"", id:"email"
+                = f.label :email, class:"blue-text" , for:"email"
+
+
+              
+            .actions
+              = f.submit 'Save', class:"waves-effect waves-light btn full-width"
+
+              
+
+
+%br
+%br
+%br
+%br
+%br
+%br
+
+
+
+

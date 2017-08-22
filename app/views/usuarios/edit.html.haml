@@ -2,6 +2,18 @@
 
 %h4.text-center Editando Usuario
 
+
+= render "partials/modalAvisoPrivasidad"
+
 = render 'form'
+
+
+
+
+
+:javascript
+    $(document).ready(function() {
+    $("#modalAvisoPrivasidad").openModal();
+    });
 
 

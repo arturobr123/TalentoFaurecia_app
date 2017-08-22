@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   resources :evaluations
   resources :vacantes
   resources :usuarios, as: :users,only: [:show,:update ,:edit, :index]
+  resources :administradores, as: :admins,only: [:show,:update ,:edit, :index]
 
   resources :vacante_aplicadas
-
 
 
 
