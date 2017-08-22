@@ -39,6 +39,8 @@ $(document).on "turbolinks:load page:fetch", ()->
 
 	$('.dropdown-button').dropdown()
 
+	if document.getElementById("modalAvisoPrivasidad")
+		$("#modalAvisoPrivasidad").openModal()
 
 	
 
