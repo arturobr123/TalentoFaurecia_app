@@ -13,11 +13,13 @@ class Notification < ApplicationRecord
 
 
   def check_date_users_notifacate
-  	@usuarios = User.where(status: 3)
-  	puts "aaaahhhhhhhh yeah!!!!!!!!!!!!!!!!!!!!!!"
-  	#@usuarios.each do |usuario|
-  		#Notification.create()
-  	#end
+  	@usuarios = User.where(status: 1)
+  	@usuarios.each do |usuario|
+  		if(  (DateTime.now - usuario.created_at.to_datetime).to_i  == 1)
+  			puts "#{usuario.name}  ya van a acabar sus practicas" 
+  		end
+  		
+  	end
   	
   end
   
