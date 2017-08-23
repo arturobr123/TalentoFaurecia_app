@@ -16,7 +16,8 @@ class Notification < ApplicationRecord
   	@usuarios = User.where(status: 1)
   	@usuarios.each do |usuario|
   		if(  (DateTime.now - usuario.created_at.to_datetime).to_i  == 1)
-  			puts "#{usuario.name}  ya van a acabar sus practicas" 
+  			puts "#{usuario.name}  ya van a acabar sus practicas"
+  			Notification.create(item: usuario, admin_id: usuario.id) 
   		end
   		
   	end

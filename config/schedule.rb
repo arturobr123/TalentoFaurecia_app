@@ -6,9 +6,9 @@
 # Example:
 #
 set :environment, "production"
-#set :output, "/home/ubuntu/cron_log.log"
+set :output, "/home/ubuntu/cron_log.log"
 #
-every 1.minutes do
+every 5.minutes do
 	runner "Notification.new.check_date_users_notifacate"
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
