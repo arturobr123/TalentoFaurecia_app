@@ -62,6 +62,9 @@ gem 'aws-sdk', '~> 2.3'
 #redis
 gem 'redis', '~> 3.2'
 
+#whenever para programar trabajos por tiempo
+gem 'whenever', :require => false
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

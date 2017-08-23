@@ -104,6 +104,12 @@
                 =f.select :interest_area3, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "Area", placeholder:"Placeholder"
                 %label.blue-text Area de interes 3
 
+              .div.input-field.col.s4
+                -if current_admin
+                  =f.select :status, TC::Status.all.collect { |u| [u.status, u.id] }, include_blank: "", placeholder:"Placeholder"
+                  %label.blue-text Status
+
+
               
               
             .actions

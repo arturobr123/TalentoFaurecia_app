@@ -10,5 +10,15 @@ class Notification < ApplicationRecord
   	Notification.where(admin_id: admin_id).unviewed.count
 
   end
+
+
+  def check_date_users_notifacate
+  	@usuarios = User.where(status: 3)
+  	puts "aaaahhhhhhhh yeah!!!!!!!!!!!!!!!!!!!!!!"
+  	#@usuarios.each do |usuario|
+  		#Notification.create()
+  	#end
+  	
+  end
   
 end
