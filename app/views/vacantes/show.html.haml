@@ -19,11 +19,11 @@
         = @vacante.location
 
       %p
-        %b Summary:
-        = @vacante.description
+        %b Descripción:
+        = simple_format(@vacante.description)
       %p
         %b Missions role:
-        = @vacante.missions_role
+        = simple_format(@vacante.missions_role)
       %p
         %b Name Hiring Manager:
         = @vacante.Name_Hiring_Manager

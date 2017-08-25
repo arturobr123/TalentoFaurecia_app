@@ -19,18 +19,15 @@ class VacantesController < ApplicationController
   # GET /vacantes/new
   def new
     @vacante = Vacante.new
-    @periodo_de_practica = ["Ene-Jun", "Jul-Dic", "Otro"]
   end
 
   # GET /vacantes/1/edit
   def edit
-    @periodo_de_practica = ["Ene-Jun", "Jul-Dic", "Otro"]
   end
 
   # POST /vacantes
   # POST /vacantes.json
   def create
-    @periodo_de_practica = ["Ene-Jun", "Jul-Dic", "Otro"]
     @vacante = current_admin.vacantes.new(vacante_params)
 
     respond_to do |format|
