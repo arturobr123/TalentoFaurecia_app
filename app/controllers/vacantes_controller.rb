@@ -61,11 +61,27 @@ class VacantesController < ApplicationController
   # DELETE /vacantes/1
   # DELETE /vacantes/1.json
   def destroy
+
+    @vacantess_aplicadas = VacanteAplicada.where(vacante_id: @vacante.id) #destrir todas las vacantes_aplicadas que sean de esta vacante
+    if(@vacantess_aplicadas)
+    
+      @vacantess_aplicadas.each do |vacante_aplicada|
+        @notifications = Notification.where(item_id: vacante_aplicada.id).unviewed  #notificaciones de cada vacante_aplicada
+        if(@notifications)
+          @notifications.destroy_all #destruye todas las notificaciones que tengan que ver con esta vacante_aplicada
+        end
+      end
+
+      @vacantess_aplicadas.destroy_all #destruye todas las vacantes_aplicadas que tengan que ver con esta vacante
+    end
+
     @vacante.destroy
     respond_to do |format|
       format.html { redirect_to vacantes_url, notice: 'Vacante was successfully destroyed.' }
       format.json { head :no_content }
     end
+
+
   end
 
   private
