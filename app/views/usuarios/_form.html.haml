@@ -35,25 +35,25 @@
                 = f.label :telefono, class:"blue-text", for:"phone"
 
               .div.input-field.col.s4
-                =f.select :sexo, @Sexos.map { |u| [u] }, include_blank: "Sexo", placeholder:"Placeholder"
+                =f.select :sexo, @Sexos.map { |u| [u] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Sexo
 
               .div.input-field.col.s4
-                =f.select :university, TC::University.all.ordenados.collect { |u| [u.universidad, u.id] }, include_blank: "Universidad", placeholder:"Placeholder"
+                =f.select :university, TC::University.all.ordenados.collect { |u| [u.universidad, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Universidad
 
 
 
               .div.input-field.col.s4
-                =f.select :carrer, TC::Carrer.all.ordenados.collect { |u| [u.carrera, u.id] }, include_blank: "Carrera", placeholder:"Placeholder"
+                =f.select :carrer, TC::Carrer.all.ordenados.collect { |u| [u.carrera, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Carrera
 
               .div.input-field.col.s4
-                =f.select :duration_internship, TC::R1_12_range.all.collect { |u| [u.rango, u.id] }, include_blank: "Duracion Internship", placeholder:"Placeholder"
+                =f.select :duration_internship, TC::R1_12_range.all.collect { |u| [u.rango, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Duracion de practicas(meses)
 
               .div.input-field.col.s4
-                =f.select :semester, TC::R1_12_range.all.collect { |u| [u.rango, u.id] }, include_blank: "Semestre", placeholder:"Placeholder"
+                =f.select :semester, TC::R1_12_range.all.collect { |u| [u.rango, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Semestre
 
 
@@ -73,7 +73,7 @@
 
 
               .div.input-field.col.s4
-                =f.select :estado_residencia, TC::Estado.all.ordenados.collect { |u| [u.estado, u.id] }, include_blank: "Estado", placeholder:"Placeholder"
+                =f.select :estado_residencia, TC::Estado.all.ordenados.collect { |u| [u.estado, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Estado residencia
 
               /cambiar por una tabla catalogo de 1 a 100
@@ -93,15 +93,15 @@
 
 
               .div.input-field.col.s4
-                =f.select :interest_area1, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "Area", placeholder:"Placeholder"
+                =f.select :interest_area1, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Area de interes 1
               
               .div.input-field.col.s4
-                =f.select :interest_area2, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "Area", placeholder:"Placeholder"
+                =f.select :interest_area2, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Area de interes 2
 
               .div.input-field.col.s4
-                =f.select :interest_area3, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "Area", placeholder:"Placeholder"
+                =f.select :interest_area3, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Area de interes 3
 
               .div.input-field.col.s4
