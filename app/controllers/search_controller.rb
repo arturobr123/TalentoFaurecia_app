@@ -100,6 +100,12 @@ class SearchController < ApplicationController
       query = query + queryOccupied
     end
 
+    if(params[:keywordAdmin].present?) #para administadores
+      admins = Admin.where("name LIKE '%#{params[:keywordAdmin]}%'").ids
+      queryAdmins = "admin_id IN (?) AND "
+      query = query + queryAdmins
+    end
+
 
     name = ""
     if(params[:keywordName].present?)
@@ -109,8 +115,8 @@ class SearchController < ApplicationController
     query = query + "name LIKE '%#{name}%'"
 
 
-    #@cosas = Post.where("body LIKE ? OR usuario LIKE ?", palabra,palabra).decorate
-    @vacantess = current_admin.vacantes.where(query).nuevos.paginate(page:params[:page], per_page:20) 
+    #@vacantess = current_admin.vacantes.where(query).nuevos.paginate(page:params[:page], per_page:20)
+    @vacantess = Vacante.where(query,admins).nuevos.paginate(page:params[:page], per_page:20)  
     
 
     respond_to do |format|
@@ -141,10 +147,9 @@ class SearchController < ApplicationController
       query = query + queryCandidatoPotencial
     end
 
-    #falta lo de usuarios
 
-    #@cosas = Post.where("body LIKE ? OR usuario LIKE ?", palabra,palabra).decorate
-    @evaluations = current_admin.evaluations.where("#{query} user_id in (?)" , usuarios).nuevos.paginate(page:params[:page], per_page:20)
+    #@evaluations = current_admin.evaluations.where("#{query} user_id in (?)" , usuarios).nuevos.paginate(page:params[:page], per_page:20)
+    @evaluations = Evaluation.where("#{query} user_id in (?)" , usuarios).nuevos.paginate(page:params[:page], per_page:20)
     
 
     respond_to do |format|
@@ -165,7 +170,8 @@ class SearchController < ApplicationController
     
     vacantes = Vacante.where("name LIKE '%#{params[:keywordVacanteName]}%' ").ids
 
-    #@cosas = Post.where("body LIKE ? OR usuario LIKE ?", palabra,palabra).decorate
+
+
     @vacante_aplicadas = VacanteAplicada.where("user_id in (?) AND vacante_id in (?)" , usuarios , vacantes).nuevos.paginate(page:params[:page], per_page:20)
     
 

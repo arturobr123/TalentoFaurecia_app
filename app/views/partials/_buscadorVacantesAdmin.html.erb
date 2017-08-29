@@ -10,7 +10,7 @@
 			<div class="">
 		     <%=form_tag "/search/search_vacantes_Admin", method: :get, remote: true, id:"search-form" do  %>
 
-		      <div class="input-field col s3">
+		      <div class="input-field col s2">
 		      	<%=text_field_tag :keywordName, nil, placeholder: "Por nombre vacante", class:"labelBuscador" %>
 
 		      </div>
@@ -23,7 +23,7 @@
 		      </div>
 
 
-		      <div class="input-field col s3">
+		      <div class="input-field col s2">
 		      	<%=text_field_tag :keywordLocation, nil, placeholder: "Por locación", class:"labelBuscador" %>
 
 		      </div>
@@ -32,6 +32,11 @@
 		      	<%= select_tag :keywordOccupied, options_for_select([["true","t"],["false","f"]]) ,include_blank: "" %>
 		      	<label>ocupado</label>
 
+		      </div>
+
+
+		      <div class="input-field col s2">
+		      	<%=text_field_tag :keywordAdmin, nil, placeholder: "Por Admin", class:"labelBuscador" %>
 		      </div>
 
 
