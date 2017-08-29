@@ -9,7 +9,7 @@ class UsuariosController < ApplicationController
 		# 2 = En proceso 
 		# 3 = Contratado
 		# 4 = Rechazado
-		@usuarios = User.where(status: 1).paginate(page:params[:page], per_page:15)
+		@usuarios = User.nuevos.where(status: 1).paginate(page:params[:page], per_page:15)
 		@how_many_usuarios = @usuarios.count 
 		
 	end
