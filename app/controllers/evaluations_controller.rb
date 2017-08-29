@@ -6,8 +6,8 @@ class EvaluationsController < ApplicationController
   # GET /evaluations
   # GET /evaluations.json
   def index
-    #@evaluations = Evaluation.all
-    @evaluations = current_admin.evaluations.nuevos.paginate(page:params[:page], per_page:20)
+    @evaluations = Evaluation.all.nuevos.paginate(page:params[:page], per_page:20)
+    #@evaluations = current_admin.evaluations.nuevos.paginate(page:params[:page], per_page:20)
   end
 
   # GET /evaluations/1

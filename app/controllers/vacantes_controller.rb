@@ -6,8 +6,8 @@ class VacantesController < ApplicationController
   # GET /vacantes.json
   def index
     #@vacantes = Vacante.all
-    @vacantess = current_admin.vacantes.nuevos.paginate(page:params[:page], per_page:20)
-    
+    #@vacantess = current_admin.vacantes.nuevos.paginate(page:params[:page], per_page:20)
+    @vacantess = Vacante.all.nuevos.paginate(page:params[:page], per_page:20)
   end
 
   # GET /vacantes/1

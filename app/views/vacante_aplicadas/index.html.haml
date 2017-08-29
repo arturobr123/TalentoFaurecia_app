@@ -15,6 +15,8 @@
 
       %th Status
 
+      %th Admin
+
       %th Fecha
 
   %tbody#data
@@ -28,6 +30,8 @@
 
         %td= TC::Status.find(vacante_aplicada.status).status
         /%td= TC::Status.find(vacante_aplicada.user.status).status
+
+        %td= vacante_aplicada.vacante.admin.name
 
         %td= fechaBonita vacante_aplicada.created_at
 

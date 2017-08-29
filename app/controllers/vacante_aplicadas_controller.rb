@@ -1,16 +1,16 @@
 class VacanteAplicadasController < ApplicationController
 
   before_action :set_vacante_aplicada, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user_information,only: [:create] 
 
   # GET /vacante_aplicadas
   # GET /vacante_aplicadas.json
   def index
     
-    #@vacante_aplicadas = VacanteAplicada.all.nuevos
+    @vacante_aplicadas = VacanteAplicada.all.nuevos.paginate(page:params[:page], per_page:20)
 
-    @id_vacantes_current_admin = current_admin.vacantes.all.ids
-
-    @vacante_aplicadas = VacanteAplicada.where(:vacante_id =>@id_vacantes_current_admin).nuevos.paginate(page:params[:page], per_page:20)
+    #@id_vacantes_current_admin = current_admin.vacantes.all.ids
+    #@vacante_aplicadas = VacanteAplicada.where(:vacante_id =>@id_vacantes_current_admin).nuevos.paginate(page:params[:page], per_page:20)
   end
 
   # GET /vacante_aplicadas/1
@@ -82,6 +82,17 @@ class VacanteAplicadasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_vacante_aplicada
       @vacante_aplicada = VacanteAplicada.find(params[:id])
+    end
+
+    def authenticate_user_information
+      @usuario = current_user
+      if(@usuario.university.nil? or @usuario.carrer.nil? or @usuario.CV_file_name.nil?)
+        redirect_to edit_user_path(current_user),notice:"El usuario no ha completado su informacion, completar y volver a aplicar a vacante"
+      else
+        return true
+        
+      end
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
