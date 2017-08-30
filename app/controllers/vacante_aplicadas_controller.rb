@@ -37,7 +37,7 @@ class VacanteAplicadasController < ApplicationController
 
     respond_to do |format|
       if @vacante_aplicada.save
-        format.html { redirect_to @vacante_aplicada, notice: 'Vacante aplicada was successfully created.' }
+        format.html { redirect_to @vacante_aplicada, notice: 'Se ha aplicado aplicado correctamente a la vacante' }
         format.json { render :show, status: :created, location: @vacante_aplicada }
       else
         format.html { render :new }
