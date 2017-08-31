@@ -17,6 +17,10 @@
           Carrera:
           -if user.carrer
             =TC::Carrer.find(user.carrer).carrera
+
+        .div
+          Email: 
+          =user.email
               
       .card-action.text-right
         = link_to 'Ver', user ,class:"waves-effect waves-light btn"
