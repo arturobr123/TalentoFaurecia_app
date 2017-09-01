@@ -15,7 +15,7 @@ class UsuariosController < ApplicationController
 	end
 	
 	def show
-		if(@user.university.nil? or @user.carrer.nil? or @user.interest_area1.nil? or @user.interest_area2.nil? or @user.interest_area1.nil?)
+		if(@user.university.nil? or @user.carrer.nil?)
 			redirect_to root_path ,notice:"El usuario no ha completado su informacion"
 		end
 			
