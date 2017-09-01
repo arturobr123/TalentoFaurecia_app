@@ -55,13 +55,13 @@
           .div.input-field.col.s4
             %div
               %b Año de graduacion:
-            -if @user.graduation_year
-              = @user.graduation_year
+            = @user.graduation_year
 
           .div.input-field.col.s4
             %div
               %b Fecha probable de inicio de practica:
-            =fechaBonita @user.disponible_en
+            -if @user.disponible_en
+              =fechaBonita @user.disponible_en
 
           .div.input-field.col.s4
             %div
