@@ -5,7 +5,7 @@ task :check_dates_notifitcations => :environment do
 end
 
 
-task :check_users_and_delete_emptys => :environment do
+task :check_users_and_delete_emptys => :environment dodsf
   @usuarios = User.all
 
   @usuarios.each do |usuario|
@@ -14,5 +14,5 @@ task :check_users_and_delete_emptys => :environment do
   	end
 
   end
-  
+
 end

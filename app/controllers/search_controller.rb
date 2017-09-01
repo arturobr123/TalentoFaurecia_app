@@ -39,16 +39,6 @@ class SearchController < ApplicationController
   def search_students
 
 
-    @usuarios = User.all
-
-    @usuarios.each do |usuario|
-      if(usuario.university.nil? and usuario.carrer.nil?)
-        usuario.destroy
-      end
-
-    end
-
-
     query = ""
 
     status = 1
