@@ -14,4 +14,5 @@ task :check_users_and_delete_emptys => :environment do
   	end
 
   end
+  
 end
