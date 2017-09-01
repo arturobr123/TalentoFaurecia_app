@@ -49,12 +49,14 @@
           .div.input-field.col.s4
             %div
               %b Fecha de nacimiento:
-            =fechaBonita @user.birthdate
+            -if @user.birthdate
+              =fechaBonita @user.birthdate
 
           .div.input-field.col.s4
             %div
               %b Año de graduacion:
-            = @user.graduation_year
+            -if @user.graduation_year
+              = @user.graduation_year
 
           .div.input-field.col.s4
             %div
