@@ -100,7 +100,6 @@ class SearchController < ApplicationController
       query = query + queryArea
     end
 
-
     if(params[:keywordLocation].present?)
       queryLocation = "location LIKE '%#{params[:keywordLocation]}%' AND "
       query = query + queryLocation
@@ -111,11 +110,7 @@ class SearchController < ApplicationController
       query = query + queryOccupied
     end
 
-    if(params[:keywordAdmin].present?) #para administadores
-      admins = Admin.where("name LIKE '%#{params[:keywordAdmin]}%'").ids
-      queryAdmins = "admin_id IN (?) AND "
-      query = query + queryAdmins
-    end
+    admins = Admin.where("name LIKE '%#{params[:keywordAdmin]}%'").ids
 
 
     name = ""
@@ -127,7 +122,7 @@ class SearchController < ApplicationController
 
 
     #@vacantess = current_admin.vacantes.where(query).nuevos.paginate(page:params[:page], per_page:20)
-    @vacantess = Vacante.where(query,admins).nuevos.paginate(page:params[:page], per_page:20)  
+    @vacantess = Vacante.where("#{query} AND admin_id in (?)", admins).nuevos.paginate(page:params[:page], per_page:20)  
     
 
     respond_to do |format|
@@ -145,7 +140,7 @@ class SearchController < ApplicationController
 
     query = ""
 
-    usuarios = User.where("name LIKE '%#{params[:keywordUserName]}%' AND firs_last_name LIKE '%#{params[:keywordUser_1_lastname]}%' AND  second_last_name LIKE '%#{params[:keywordUser_2_lastname]}%'").ids
+    usuarios = User.where("LOWER(name) LIKE '%#{params[:keywordUserName].downcase}%' AND LOWER(firs_last_name) LIKE '%#{params[:keywordUser_1_lastname].downcase}%' AND  LOWER(second_last_name) LIKE '%#{params[:keywordUser_2_lastname].downcase}%'").ids
 
     if(params[:keywordGlobalCandidate].present?)
       queryGlobarCandidate = "rank_global_candidate = #{params[:keywordGlobalCandidate]} AND "
@@ -177,9 +172,9 @@ class SearchController < ApplicationController
 
   def search_vacantes_aplicadas_Admin
 
-    usuarios = User.where("name LIKE '%#{params[:keywordUserName]}%' AND firs_last_name LIKE '%#{params[:keywordUser_1_lastname]}%' AND  second_last_name LIKE '%#{params[:keywordUser_2_lastname]}%'").ids
+    usuarios = User.where("LOWER(name) LIKE '%#{params[:keywordUserName].downcase}%' AND LOWER(firs_last_name) LIKE '%#{params[:keywordUser_1_lastname].downcase}%' AND  LOWER(second_last_name) LIKE '%#{params[:keywordUser_2_lastname].downcase}%'").ids
     
-    vacantes = Vacante.where("name LIKE '%#{params[:keywordVacanteName]}%' ").ids
+    vacantes = Vacante.where("LOWER(name) LIKE '%#{params[:keywordVacanteName].downcase}%' ").ids
 
 
 
