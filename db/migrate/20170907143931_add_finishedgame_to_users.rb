@@ -1,5 +1,5 @@
 class AddFinishedgameToUsers < ActiveRecord::Migration[5.0]
   def change
-    add_column :users, :game_finished, :boolean
+    add_column :users, :game_finished, :boolean,default: false
   end
 end

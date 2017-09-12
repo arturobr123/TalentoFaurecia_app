@@ -39,8 +39,8 @@ class CreateEvaluationHiringManagers < ActiveRecord::Migration[5.0]
       t.boolean :mobility_of_intern_afer_assignment
       t.text :mobility_of_intern_afer_assignment_where
       t.text :aditional_comments
-      t.boolean :i_recommend_this_candidate_for_inmediate_contract_with_the_company
-      t.text :i_recommend_this_candidate_for_inmediate_contract_with_the_company_why
+      t.boolean :i_recommend_this_candidate_for_inmediate
+      t.text :i_recommend_him_why
 
       t.timestamps
 
