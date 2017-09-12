@@ -1,0 +1,36 @@
+%body.white-background
+
+%h4 Lista de preguntas para juego
+
+= link_to 'Crear nueva pregunta', new_questions_first_filter_path , class:"waves-effect waves-light btn"
+
+%table
+  %thead
+    %tr
+      %th Pregunta
+      %th Respuesta1
+      %th Respuesta2
+      %th Respuesta3
+      %th Respuesta4
+      %th Respuesta correcta
+      %th
+      %th
+      %th
+
+  %tbody
+    - @questions_first_filters.each do |questions_first_filter|
+      %tr
+        %td= questions_first_filter.pregunta
+        %td= questions_first_filter.respuesta1
+        %td= questions_first_filter.respuesta2
+        %td= questions_first_filter.respuesta3
+        %td= questions_first_filter.respuesta4
+        %td= questions_first_filter.respuesta_correcta
+        %td= link_to 'Show', questions_first_filter
+        %td= link_to 'Edit', edit_questions_first_filter_path(questions_first_filter)
+        %td= link_to 'Destroy', questions_first_filter, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+
+

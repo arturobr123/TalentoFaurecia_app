@@ -1,0 +1,39 @@
+
+  <div id="modalRespuestasPartial" class="modal">
+    <div class="modal-content">
+      <h4 class="blue-text">Respuestas</h4>
+
+
+          <% @answer_questions.each do |answer| %>
+
+          <div class="top-space">
+          	<b class="line"><%= QuestionsFirstFilter.find(answer.questions_first_filter_id).pregunta   %> </b>
+
+
+          	<% if answer.respuesta == true %>
+
+          		<p class="line" > CORRECTO </p>
+
+          	<% else %>
+          		<p class="line" > INCORRECTO </p>
+
+          	<% end %>
+          	
+
+          </div>
+          	
+
+          <% end %>
+
+      <% if @answer_questions.blank? %>
+
+        <p> No ha contestado la encuesta </p>
+
+      <% end %>
+
+
+    </div>
+    <div class="modal-footer">
+      <a  class="modal-action modal-close waves-effect waves-green btn-flat">De acuerdo</a>
+    </div>
+  </div>

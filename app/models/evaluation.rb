@@ -6,5 +6,7 @@ class Evaluation < ApplicationRecord
   belongs_to :admin
   belongs_to :user
 
+  validates :rank_global_candidate, presence: true
+
 
 end

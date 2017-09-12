@@ -41,6 +41,7 @@ class EvaluationsController < ApplicationController
         format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation }
       else
+        @user = User.find(@evaluation.user_id)
         format.html { render :new }
         format.json { render json: @evaluation.errors, status: :unprocessable_entity }
       end

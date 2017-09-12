@@ -1,0 +1,27 @@
+%body.white-background
+
+%p#notice= notice
+
+%p
+  %b Pregunta:
+  = @questions_first_filter.pregunta
+%p
+  %b Respuesta1:
+  = @questions_first_filter.respuesta1
+%p
+  %b Respuesta2:
+  = @questions_first_filter.respuesta2
+%p
+  %b Respuesta3:
+  = @questions_first_filter.respuesta3
+%p
+  %b Respuesta4:
+  = @questions_first_filter.respuesta4
+%p
+  %b Respuesta correcta:
+  = @questions_first_filter.respuesta_correcta
+
+= link_to 'Edit', edit_questions_first_filter_path(@questions_first_filter)
+\|
+= link_to 'preguntas', questions_first_filters_path
+

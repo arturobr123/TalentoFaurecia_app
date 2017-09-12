@@ -38,7 +38,6 @@ class SearchController < ApplicationController
 
   def search_students
 
-
     query = ""
 
     status = 1
@@ -57,8 +56,20 @@ class SearchController < ApplicationController
     end
 
     if(params[:keywordNombre].present?)
-      queryNombre = "name LIKE '%#{params[:keywordNombre]}%' AND "
+      queryNombre = "LOWER(name) LIKE '%#{params[:keywordNombre].downcase}%' AND "
+      #queryNombre = "name LIKE '%#{params[:keywordNombre]}%' AND "
       query = query + queryNombre
+    end
+
+    if(params[:keywordApaterno].present?)
+      queryApaterno = "LOWER(firs_last_name) LIKE '%#{params[:keywordApaterno].downcase}%' AND "
+      query = query + queryApaterno
+    end
+
+
+    if(params[:keywordNAmaterno].present?)
+      queryAmaterno = "LOWER(second_last_name) LIKE '%#{params[:keywordNAmaterno].downcase}%' AND "
+      query = query + queryAmaterno
     end
 
     query = query + "status = #{status}"

@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  get "usuarios/ver_respuestas_user" => 'usuarios#ver_respuestas_user', :as => :ver_respuestas_user
+
+  resources :answer_questions
+  get 'game/siguinte_pregunta'
+  get 'game/responder'
+  get 'game/home' => 'game#home', :as => :gameHome
+  get 'game/gameOver' => 'game#gameOver', :as => :gameOver
+
+  resources :questions_first_filters
+
+
   get 'search/create'
   get 'search/search_students'
   get 'search/search_vacantes_Admin'

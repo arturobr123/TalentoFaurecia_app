@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-	before_action :set_user ,except: [:index]
+	before_action :set_user ,except: [:index , :ver_respuestas_user]
 	#before_action :authenticate_user!,only: [:update] #gema devise
 	#before_action :authenticate_owner!,only: [:update] #solo aunteticar si es el perfil del current user
 
@@ -38,6 +38,19 @@ class UsuariosController < ApplicationController
 				format.json { render json: @user.errors }
 			end
 		end
+	end
+
+
+	#funcion para que el admin pueda ver las preguntas contestadas del estudiante
+	def ver_respuestas_user
+
+	  @answer_questions = AnswerQuestion.where(user_id: params[:userid])
+
+	  respond_to do |format|
+	      format.html
+	      format.js
+      end
+		
 	end
 
 	private

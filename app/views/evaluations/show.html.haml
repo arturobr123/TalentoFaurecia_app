@@ -19,13 +19,12 @@
           %div.input-field.col.s12
             %p
               %b Comments:
-              = @evaluation.comments
+              = simple_format(@evaluation.comments)
 
           %div.input-field.col.s12
             %p
               %b Technical skills:
-              = @evaluation.technical_skills
-
+              = simple_format(@evaluation.technical_skills)
 
 
           %div.input-field.col.s6
@@ -36,8 +35,6 @@
 
           %div.input-field.col.s6
             %p
-              %b Duration training:
-              = @evaluation.duration_training
 
 
 

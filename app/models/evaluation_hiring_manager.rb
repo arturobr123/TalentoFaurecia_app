@@ -1,0 +1,2 @@
+class EvaluationHiringManager < ApplicationRecord
+end

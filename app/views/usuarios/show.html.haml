@@ -1,6 +1,7 @@
 %body.white-background
 /%p#notice= notice
 
+
 .row.center-xs
   .col-xs-9
     .box.text-left
@@ -113,13 +114,25 @@
           .div.input-field.col.s4
             %div
               %b CV:
-            = link_to @user.CV_file_name, @user.CV.url(:original, false)
+            -if @user.CV.url != "/cvs/original/missing.png"
+              = link_to @user.CV_file_name, @user.CV.url(:original, false)
+            -else
+              %p No ha subido su CV
 
 
 
     .col.s3
       -if current_admin
         = link_to 'Nueva Evaluacion', new_evaluation_path(userid: @user.id), class:"waves-effect waves-light btn"
+
+        %br
+
+        =link_to "ver respuestas", ver_respuestas_user_path(userid: @user.id), :remote => true
+
+
+
+/este id solo es para indicar que aqui se pondra el modal, no sirve para nada mas
+#modalRespuestas
 
 
 = link_to 'Edit', edit_user_path(@user)

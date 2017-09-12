@@ -1,0 +1,95 @@
+%body.white-background
+
+= render "partials/noticeToast"
+
+.row.center-xs
+  .col-xs-10
+    .box
+      .col.s12
+        .row
+          .div.input-field.col.s12#pregunta
+            %div.blue-text.card-panel
+              %p.center-align.pregunta_texto
+                = @random_question.pregunta
+
+
+      .col.s12
+        .row
+
+
+
+          .div.input-field.col.s3
+            =form_tag "/game/responder", method: :get, remote: true do
+
+
+              =text_field_tag :respuesta_seleccionada, nil, class:"ocultar" , id:"q1", value:@random_question.respuesta1 
+
+              =text_field_tag :idPregunta, nil,class:"ocultar", value: @random_question.id
+
+              =button_tag @random_question.respuesta1 , class: 'waves-effect waves-light btn buttonBuscador' , type: :submit
+
+
+
+
+          .div.input-field.col.s3
+            =form_tag "/game/responder", method: :get, remote: true do
+
+              =text_field_tag :respuesta_seleccionada, nil, class:"ocultar", value:@random_question.respuesta2 
+
+              =text_field_tag :idPregunta, nil,class:"ocultar", value: @random_question.id
+
+              =button_tag @random_question.respuesta2 , class: 'waves-effect waves-light btn buttonBuscador' , type: :submit
+
+
+
+
+          .div.input-field.col.s3
+            =form_tag "/game/responder", method: :get, remote: true do
+
+              =text_field_tag :respuesta_seleccionada, nil, class:"ocultar", value:@random_question.respuesta3 
+
+              =text_field_tag :idPregunta, nil,class:"ocultar", value: @random_question.id
+
+              =button_tag @random_question.respuesta3 , class: 'waves-effect waves-light btn buttonBuscador' , type: :submit
+
+
+
+          .div.input-field.col.s3
+            =form_tag "/game/responder", method: :get, remote: true do
+
+              =text_field_tag :respuesta_seleccionada, nil, class:"ocultar", value:@random_question.respuesta4 
+
+              =text_field_tag :idPregunta, nil,class:"ocultar", value: @random_question.id
+
+              =button_tag @random_question.respuesta4 , class: 'waves-effect waves-light btn buttonBuscador' , type: :submit
+
+
+          %br
+          %br
+          %br
+          .div.input-field.col.s12
+            = render "partials/preloader"
+
+          .div.input-field.col.s12
+            %p.text-center.mensaje_pregunta_texto#mensaje
+
+          %br
+          %br
+          %br
+
+
+        .div.input-field.col.s12#siguiente.ocultar
+
+          =form_tag "/game/siguinte_pregunta", method: :get do
+
+            =button_tag "siguiente" , class: 'waves-effect waves-light btn blue' , type: :submit
+
+%div#mensaje
+
+
+
+
+
+
+
+

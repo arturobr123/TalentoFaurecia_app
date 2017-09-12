@@ -1,0 +1,39 @@
+%h1 Listing answer_questions
+
+%table
+  %thead
+    %tr
+      %th Pregunta
+      %th User
+      %th Respuesta
+      
+      %th
+      %th
+      %th
+
+  %tbody
+    - @answer_questions.each do |answer_question|
+      %tr
+
+        %td=answer_question.questions_first_filter.pregunta
+
+        %td
+          = answer_question.user.name
+          =answer_question.user.firs_last_name
+          =answer_question.user.second_last_name
+
+        %td
+          -if answer_question.respuesta == true
+            Correcta
+          -else
+            Incorrecta
+
+
+        
+        %td= link_to 'Show', answer_question
+        %td= link_to 'Edit', edit_answer_question_path(answer_question)
+        %td= link_to 'Destroy', answer_question, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Answer question', new_answer_question_path

@@ -1,0 +1,24 @@
+%body.white-background
+
+%div.blue-text.card-panel
+	%p.center-align.pregunta_texto
+		Muy bien, ahora puedes completar tu perfil y aplicar a las vacantes
+
+
+
+.row.center-xs
+
+	.col-xs-10
+		.box
+			.col.s12
+
+				%br
+
+
+				= link_to 'Ir a las vacantes', root_path, class:"waves-effect waves-light btn full-width"
+
+				%br
+				%br
+
+				-if current_user
+					= link_to 'Completar tu perfil', edit_user_path(current_user),class:"waves-effect waves-light btn full-width"

@@ -1,0 +1,2 @@
+class QuestionsFirstFilter < ApplicationRecord
+end

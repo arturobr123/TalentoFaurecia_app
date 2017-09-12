@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :notifications
 
+  has_many :answer_questions
+
   validates :name, presence: true, length: {in: 3..50}
   validates :firs_last_name, presence: true
   validates :second_last_name, presence: true

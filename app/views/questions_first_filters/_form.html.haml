@@ -1,0 +1,47 @@
+= form_for @questions_first_filter do |f|
+  - if @questions_first_filter.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@questions_first_filter.errors.count, "error")} prohibited this questions_first_filter from being saved:"
+      %ul
+        - @questions_first_filter.errors.full_messages.each do |message|
+          %li= message
+
+
+
+  .row.center-xs
+    .col-xs-9
+      .box
+
+        .row
+          .col.s12
+            .row.text-left
+
+              .div.input-field.col.s12
+                = f.text_field :pregunta, class:"" 
+                = f.label :pregunta, class:"blue-text" 
+
+              .div.input-field.col.s12
+                = f.text_field :respuesta1, class:"" 
+                = f.label :respuesta1, class:"blue-text" 
+
+              .div.input-field.col.s12
+                = f.text_field :respuesta2, class:"" 
+                = f.label :respuesta2, class:"blue-text" 
+
+              .div.input-field.col.s12
+                = f.text_field :respuesta3, class:"" 
+                = f.label :respuesta3, class:"blue-text"
+
+              .div.input-field.col.s12
+                = f.text_field :respuesta4, class:"" 
+                = f.label :respuesta4, class:"blue-text" 
+
+              .div.input-field.col.s12
+                = f.text_field :respuesta_correcta, class:"" 
+                = f.label :respuesta_correcta, class:"blue-text"  
+
+
+
+            .actions.top-space2
+              = f.submit 'Save', class:"waves-effect waves-light btn full-width"
+

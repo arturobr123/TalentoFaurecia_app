@@ -1,42 +1,48 @@
 
 
-<div class="row center-xs">
+<div class="row center-xs box z-depth-1">
 
 	<div class="col-xs-12">
 
-		<div class="box z-depth-1">
+		<div class="">
 
 
 			<div class="">
-		     <%=form_tag "/search/search_students", method: :get, remote: true, id:"search-form" do  %>
+		     <%=form_tag "/search/search_students", method: :get,class:"" , remote: true, id:"search-form" do  %>
 
-		      <div class="input-field col s3">
+		      <div class="input-field col s4">
 		      	<%= select_tag :keywordUniversidad, options_for_select(TC::University.all.ordenados.collect{ |u| [u.universidad, u.id] }) ,include_blank: true %>
 
 		      	<label class="">Universidad</label>
 		      </div>
 
 
-		      <div class="input-field col s3">
+		      <div class="input-field col s4">
 		      	<%= select_tag :keywordCarrera, options_for_select(TC::Carrer.all.ordenados.collect{ |u| [u.carrera, u.id] }) ,include_blank: true %>
 
 		      	<label class="">Carrera</label>
 		      </div>
 
 
-		       <div class="input-field col s3">
+		       <div class="input-field col s4">
 		      	<%= select_tag :keywordStatus, options_for_select(TC::Status.all.collect.collect{ |u| [u.status, u.id] }) ,include_blank: true %>
 
 		      	<label class="">Status</label>
 		      </div>
 
 
-		      <div class="input-field col s3">
-		      	<%=text_field_tag :keywordNombre, nil, placeholder: "Por nombre", class:"labelBuscador" %>
+		      <div class="input-field col s4">
+		      	<%=text_field_tag :keywordNombre, nil, placeholder: "Nombre", class:"labelBuscador" %>
 		      </div>
 
+		       <div class="input-field col s4">
+		      	<%=text_field_tag :keywordApaterno, nil, placeholder: "Apellido paterno", class:"labelBuscador" %>
+		      </div>
 
-		      
+		      <div class="input-field col s4">
+		      	<%=text_field_tag :keywordNAmaterno, nil, placeholder: "Apellido materno", class:"labelBuscador" %>
+		      </div>
+
 
 
           	   	  <button class="buttonBuscador" type="submit">Buscar</button>
