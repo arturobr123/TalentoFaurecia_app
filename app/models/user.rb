@@ -19,8 +19,9 @@ class User < ApplicationRecord
   validates :second_last_name, presence: true
 
   has_attached_file :CV
-  validates_attachment_content_type :CV,:content_type => ['application/pdf','application/msword']
 
+  #pdf, .doc , .docx
+  validates_attachment_content_type :CV,:content_type => ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document']
 
 
 
