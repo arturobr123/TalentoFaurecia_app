@@ -24,9 +24,9 @@ class UsuariosController < ApplicationController
 
 	def edit
 
-		#if current_user.game_finished == false
-      	#	redirect_to gameHome_path, notice: "Antes de completar tu perfil contesta 5 preguntas sobre Faurecia"
-    	#end
+		if current_user.game_finished == false
+      		redirect_to gameHome_path, notice: "Antes de completar tu perfil contesta 5 preguntas sobre Faurecia"
+    	end
 
 		@Sexos = ["Femenino" , "Masculino" , "No quiero responder"]
 	end
