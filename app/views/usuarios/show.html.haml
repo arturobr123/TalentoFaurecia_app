@@ -124,12 +124,12 @@
     .col.s12
       .row
         -if current_admin
-          .col.s6
+          .col.s4
             = link_to 'Nueva Evaluacion', new_evaluation_path(userid: @user.id), class:"waves-effect waves-light btn"
-          /.col.s4
-          /  =link_to "ver respuestas de juego", ver_respuestas_user_path(userid: @user.id), :remote => true , class:"waves-effect waves-light btn blue"
+          .col.s4
+            =link_to "ver respuestas de juego", ver_respuestas_user_path(userid: @user.id), :remote => true , class:"waves-effect waves-light btn blue"
 
-          /.col.s4
+          .col.s4
 
         
 
