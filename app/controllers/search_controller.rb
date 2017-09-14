@@ -10,17 +10,17 @@ class SearchController < ApplicationController
 
 
     if(params[:keywordLocation].present?)
-      queryLocation = "location LIKE '%#{params[:keywordLocation]}%' AND "
+      queryLocation = "LOWER(location) LIKE '%#{params[:keywordLocation].downcase}%' AND "
       query = query + queryLocation
     end
 
 
     name = ""
     if(params[:keywordName].present?)
-      name = params[:keywordName]
+      name = params[:keywordName].downcase
     end
 
-    query = query + "name LIKE '%#{name}%'"
+    query = query + "LOWER(name) LIKE '%#{name}%'"
 
 
   	#@cosas = Post.where("body LIKE ? OR usuario LIKE ?", palabra,palabra).decorate
@@ -152,6 +152,14 @@ class SearchController < ApplicationController
       queryCandidatoPotencial = "candidato_potencial = '#{params[:keywordCandidatoPotencial]}' AND "
       query = query + queryCandidatoPotencial
     end
+
+
+    if(params[:keywordAssessment].present?)
+      queryAssessment = "assessment = '#{params[:keywordAssessment]}' AND "
+      query = query + queryAssessment
+    end
+
+
 
 
     #@evaluations = current_admin.evaluations.where("#{query} user_id in (?)" , usuarios).nuevos.paginate(page:params[:page], per_page:20)

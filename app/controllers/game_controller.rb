@@ -7,6 +7,7 @@ class GameController < ApplicationController
     @numero_preguntas = QuestionsFirstFilter.all.count
     #arreglo de las preguntas que ha contestado
     $global_questions ||= []
+    
     $id_siguiente_pregunta = ([*1..@numero_preguntas] -$global_questions).sample
 
     puts $id_siguiente_pregunta  
@@ -66,7 +67,6 @@ class GameController < ApplicationController
   		format.js
   	end
 
-    #format.html{redirect_to gameHome_path(next_question: id_siguiente_pregunta)}
   	
   end
 
@@ -74,7 +74,11 @@ class GameController < ApplicationController
 
 
   def gameOver
-    #current_user.update( :game_finished => true)
+
+    if(current_user.game_finished != true)
+      current_user.update( :game_finished => true)
+    end
+
     $global_questions = nil
     
   end

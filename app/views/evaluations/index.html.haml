@@ -17,6 +17,8 @@
 
       %th Candidato potencial
 
+      %th Assessment
+
       %th Fecha
 
 
@@ -25,11 +27,13 @@
       %tr.border-bottom
         %td= evaluation.admin.name
 
-        %td= evaluation.user.name + " " + evaluation.user.firs_last_name + " " + evaluation.user.second_last_name
+        %td= link_to evaluation.user.name + " " + evaluation.user.firs_last_name + " " + evaluation.user.second_last_name, evaluation.user
 
         %td= TC::Rank_candidate.find(evaluation.rank_global_candidate).rank
 
         %td= evaluation.candidato_potencial
+
+        %td= evaluation.assessment
 
         %td= fechaBonita evaluation.created_at
 

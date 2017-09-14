@@ -86,7 +86,7 @@ class VacanteAplicadasController < ApplicationController
 
     def authenticate_user_information
       @usuario = current_user
-      if(@usuario.university.nil? or @usuario.carrer.nil? or @usuario.CV_file_name.nil?)
+      if(@usuario.university.nil? or @usuario.carrer.nil?)
         redirect_to edit_user_path(current_user),notice:"El usuario no ha completado su informacion, completar y volver a aplicar a vacante"
       else
         return true

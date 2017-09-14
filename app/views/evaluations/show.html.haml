@@ -27,6 +27,7 @@
               = simple_format(@evaluation.technical_skills)
 
 
+
           %div.input-field.col.s6
             %p
               %b English level:
@@ -35,6 +36,9 @@
 
           %div.input-field.col.s6
             %p
+              %b Rank global candidate:
+              = TC::Rank_candidate.find(@evaluation.rank_global_candidate).rank
+
 
 
 
@@ -43,10 +47,17 @@
               %b Candidato potencial:
               = @evaluation.candidato_potencial
 
+
           %div.input-field.col.s6
             %p
-              %b Rank global candidate:
-              = TC::Rank_candidate.find(@evaluation.rank_global_candidate).rank
+              %b Assessment:
+              = @evaluation.assessment
+
+
+
+          
+
+          
       
       
       

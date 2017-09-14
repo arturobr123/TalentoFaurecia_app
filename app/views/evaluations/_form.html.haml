@@ -1,8 +1,8 @@
 = form_for @evaluation do |f|
   - if @evaluation.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@evaluation.errors.count, "error")} prohibited this evaluation from being saved:"
-      %ul
+      %h4.text-center= "#{pluralize(@evaluation.errors.count, "error")} prohibited this evaluation from being saved:"
+      %ul.text-center
         - @evaluation.errors.full_messages.each do |message|
           %li= message
 
@@ -53,6 +53,8 @@
                 = f.label :candidato_potencial
 
               .div.input-field.col.s6
+                = f.check_box :assessment
+                = f.label :assessment
 
 
 

@@ -17,7 +17,7 @@ body{
 }
 
 .main-background{
-	background-image: url(#{asset_path('i4.jpg')});
+	background-image: url(#{asset_path('i2.jpg')});
 	background-size: cover;
 	
 }
@@ -31,7 +31,7 @@ body{
 .signin-background{
 	background-color: black;
 	background-size: cover;
-	opacity: 0.8;
+	opacity: 0.9;
 
 	
 }

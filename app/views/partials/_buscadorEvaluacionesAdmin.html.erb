@@ -30,9 +30,16 @@
 		      </div>
 
 
-		       <div class="input-field col s2">
+		       <div class="input-field col s1">
 		      	<%= select_tag :keywordCandidatoPotencial, options_for_select([["true","t"],["false","f"]]) ,include_blank: "" %>
 		      	<label>Candidato potencial</label>
+
+		      </div>
+
+
+		      <div class="input-field col s1">
+		      	<%= select_tag :keywordAssessment, options_for_select([["true","t"],["false","f"]]) ,include_blank: "" %>
+		      	<label>Assessment</label>
 
 		      </div>
 
