@@ -61,11 +61,7 @@ class GameController < ApplicationController
   def siguinte_pregunta
 
    
-  	respond_to do |format|
-  		format.html{redirect_to gameHome_path }
-  		format.json {render json: @mensaje}
-  		format.js
-  	end
+  	redirect_to gameHome_path
 
   	
   end
