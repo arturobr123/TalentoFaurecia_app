@@ -86,7 +86,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { :host => "https://faurecia-students.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "https://faurecia-students.herokuapp.com" ,protocol: 'https' }
 
 
   ActionMailer::Base.smtp_settings = {
