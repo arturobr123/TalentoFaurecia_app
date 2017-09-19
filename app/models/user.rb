@@ -14,6 +14,11 @@ class User < ApplicationRecord
 
   has_many :answer_questions
 
+  validates :university, presence: true , :on => :update
+  validates :carrer, presence: true , :on => :update
+  validates :estado_residencia, presence: true , :on => :update
+  validates :interest_area1, presence: true , :on => :update
+
   validates :name, presence: true, length: {in: 3..50}
   validates :firs_last_name, presence: true
   validates :second_last_name, presence: true

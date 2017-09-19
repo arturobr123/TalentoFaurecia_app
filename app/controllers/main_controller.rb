@@ -11,7 +11,7 @@ class MainController < ApplicationController
 
     #Si es la primera vez que se registra el usuario
     if current_user.game_finished == false
-      redirect_to gameHome_path, notice: "Antes de ver las vacantes contesta 5 preguntas sobre Faurecia"
+      redirect_to gameHome_path, notice: "Antes de completar tu perfil y ver las vacantes contesta 5 preguntas sobre Faurecia"
     end
 
 

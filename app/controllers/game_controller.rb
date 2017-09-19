@@ -20,7 +20,7 @@ class GameController < ApplicationController
     end
 
     if($global_questions.size >= 5)
-      current_user.update( :game_finished => true)
+      current_user.update_attribute( "game_finished", true)
       redirect_to gameOver_path
     end
     
@@ -72,10 +72,13 @@ class GameController < ApplicationController
   def gameOver
 
     if(current_user.game_finished != true)
-      current_user.update( :game_finished => true)
+      current_user.update_attribute( "game_finished", true)
     end
 
     $global_questions = nil
+
+    redirect_to edit_user_path(current_user),notice:"Completa tu perfil para ver las vacantes"
+
     
   end
 

@@ -1,0 +1,19 @@
+%h1 Listing evaluation_hiring_managers
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @evaluation_hiring_managers.each do |evaluation_hiring_manager|
+      %tr
+        %td= link_to 'Show', evaluation_hiring_manager
+        %td= link_to 'Edit', edit_evaluation_hiring_manager_path(evaluation_hiring_manager)
+        %td= link_to 'Destroy', evaluation_hiring_manager, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Evaluation hiring manager', new_evaluation_hiring_manager_path

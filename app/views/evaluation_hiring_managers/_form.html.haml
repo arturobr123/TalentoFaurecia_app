@@ -1,0 +1,28 @@
+= form_for @evaluation_hiring_manager do |f|
+	- if @evaluation_hiring_manager.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@evaluation_hiring_manager.errors.count, "error")} prohibited this evaluation_hiring_manager from being saved:"
+			%ul
+				- @evaluation_hiring_manager.errors.full_messages.each do |message|
+					%li= message
+
+	.row.center-xs
+		.col-xs-10
+			.box
+				.row
+					.col.s12
+						.row.text-left
+
+							.div.input-field.col.s2
+								%p.lighter Learning on the fly
+
+							.div.input-field.col.s4
+								
+
+							.div.input-field.col.s6
+								= f.text_field :learning_on_the_fly_justification, class:"" ,id:"learning_on_the_fly_justification"
+								= f.label :learning_on_the_fly_justification, class:"gray-text", for:"learning_on_the_fly_justification"					
+
+
+	.actions
+		= f.submit 'Save'

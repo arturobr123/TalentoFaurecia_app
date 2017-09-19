@@ -39,11 +39,12 @@ class UsuariosController < ApplicationController
 		
 		respond_to do |format|
 			if @user.update(user_params)
-				format.html {redirect_to @user}
+				format.html {redirect_to root_path, notice: "información guardada correctamente"} #redirect_to @user
 				format.js
 				format.json { render :show}
 			else
-				format.html {redirect_to @user, notice:"Error al actualizar"}
+				@Sexos = ["Femenino" , "Masculino" , "No quiero responder"]
+				format.html { render :edit }
 				format.json { render json: @user.errors }
 			end
 		end

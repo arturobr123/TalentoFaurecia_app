@@ -2,9 +2,6 @@
 
 = render "partials/noticeToast"
 
-= $global_questions
-
-= $id_siguiente_pregunta
 
 .row.center-xs
   .col-xs-12
@@ -18,7 +15,7 @@
 
 
           .div.input-field.col.s12
-            =form_tag "/game/responder", method: :get, remote: true do
+            =form_tag "/game/responder", id:"botonRespuesta" , method: :get, remote: true do
 
 
               =text_field_tag :respuesta_seleccionada, nil, class:"ocultar" , id:"q1", value:@random_question.respuesta1 
@@ -31,7 +28,7 @@
 
 
           .div.input-field.col.s12
-            =form_tag "/game/responder", method: :get, remote: true do
+            =form_tag "/game/responder", id:"botonRespuesta" ,method: :get, remote: true do
 
               =text_field_tag :respuesta_seleccionada, nil, class:"ocultar", value:@random_question.respuesta2 
 
@@ -43,7 +40,7 @@
 
 
           .div.input-field.col.s12
-            =form_tag "/game/responder", method: :get, remote: true do
+            =form_tag "/game/responder", id:"botonRespuesta" ,method: :get, remote: true do
 
               =text_field_tag :respuesta_seleccionada, nil, class:"ocultar", value:@random_question.respuesta3 
 
@@ -54,7 +51,7 @@
 
 
           .div.input-field.col.s12
-            =form_tag "/game/responder", method: :get, remote: true do
+            =form_tag "/game/responder", id:"botonRespuesta" , method: :get, remote: true do
 
               =text_field_tag :respuesta_seleccionada, nil, class:"ocultar", value:@random_question.respuesta4 
 
