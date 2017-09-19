@@ -1,7 +1,7 @@
 class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:new]
-   before_action :authenticate_admin! , only: [:new]
+  before_action :authenticate_admin! , only: [:new]
 
   # GET /evaluations
   # GET /evaluations.json
@@ -80,8 +80,16 @@ class EvaluationsController < ApplicationController
 
     def set_user
       @user = User.find(params[:userid])
+
+      if(@user.university.nil? and @user.carrer.nil?)
+        redirect_to root_path,notice:"No se puede evaluar, el usuario no ha completado su información"
+      else
+        return true
+        
+      end
       
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params

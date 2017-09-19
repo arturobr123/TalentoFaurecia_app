@@ -20,6 +20,7 @@ class GameController < ApplicationController
     end
 
     if($global_questions.size >= 5)
+      #obliga hacer el update sin checar las validaciones del update
       current_user.update_attribute( "game_finished", true)
       redirect_to gameOver_path
     end
