@@ -36,8 +36,8 @@
 
 
               .div.input-field.col.s6
-                = f.label :nivel_de_ingles_50_a_100, class:"blue-text", for:"english_level"
-                = f.text_field :english_level, class:"" , id:"english_level"
+                =f.select :english_level, TC::English_level.all.collect { |u| [u.level, u.id] }, include_blank: "", placeholder:"Placeholder"
+                %label.blue-text English level
 
               .div.input-field.col.s6
                 =f.select :rank_global_candidate, TC::Rank_candidate.all.collect { |u| [u.rank, u.id] }, include_blank: "", placeholder:"Placeholder"

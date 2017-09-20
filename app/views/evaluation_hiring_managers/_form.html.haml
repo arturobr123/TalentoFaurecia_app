@@ -7,21 +7,27 @@
 					%li= message
 
 	.row.center-xs
-		.col-xs-10
+		.col-xs-12
 			.box
 				.row
 					.col.s12
 						.row.text-left
 
 							.div.input-field.col.s2
-								%p.lighter Learning on the fly
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Learns quickly when facing new problems; a relentless and versatile learner; open to change; analyzes both successes and failures for clues to improvement; experiments and will try anything to find solutions; enjoys the challenge of unfamiliar tasks; quickly grasps the essence and the underlying structure of anything."} Learning on the fly
+									 
 
-							.div.input-field.col.s4
+							.div.input-field.col.s5
+								=f.select :learning_on_the_fly_select, TC::Rank_candidate.all.collect { |u| [u.rank, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text rank global candidate
 								
 
-							.div.input-field.col.s6
+							.div.input-field.col.s5
 								= f.text_field :learning_on_the_fly_justification, class:"" ,id:"learning_on_the_fly_justification"
-								= f.label :learning_on_the_fly_justification, class:"gray-text", for:"learning_on_the_fly_justification"					
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"learning_on_the_fly_justification"
+
+
+
 
 
 	.actions

@@ -39,6 +39,17 @@ html,body{
 	font-size: 1.2em;
 }
 
+.description_competences{
+	font-size: 0.7em;
+}
+
+
+
+
+.verticale_middle{
+	vertical-align: middle;
+}
+
 .large-padding{
 	padding: 10px 15px;
 }
@@ -648,4 +659,17 @@ margin: 20px auto;
 .mensaje_pregunta_texto{
 	font-size:1.3em;
 
+}
+
+
+
+
+
+.material-tooltip{
+	width: 240px;
+	font-size: 0.8em !important;
+}
+
+.backdrop{
+       background-color: #e91e63 !important;
 }

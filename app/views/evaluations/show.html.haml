@@ -31,8 +31,12 @@
           %div.input-field.col.s6
             %p
               %b English level:
-              = @evaluation.english_level
-              \/100
+              -if @evaluation.english_level <= 3
+                = TC::English_level.find(@evaluation.english_level).level
+              -else
+                = @evaluation.english_level
+                \/100
+
 
           %div.input-field.col.s6
             %p

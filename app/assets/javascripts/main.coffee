@@ -7,9 +7,6 @@ $(document).on "turbolinks:load page:fetch", ()->
 
 	console.log("main.coffee")
 
-
-
-
 	$("#notificationButton").on "click", (ev)->
 
 		selector = $(this).attr("for")     #para obtener el id de modal notifications
@@ -45,6 +42,9 @@ $(document).on "turbolinks:load page:fetch", ()->
 
 	if document.getElementById("modalAvisoPrivasidad")
 		$("#modalAvisoPrivasidad").openModal()
+
+
+	$('.tooltipped').tooltip({delay: 50})
 
 	
 
