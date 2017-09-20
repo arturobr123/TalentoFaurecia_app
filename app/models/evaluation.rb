@@ -7,6 +7,7 @@ class Evaluation < ApplicationRecord
   belongs_to :user
 
   validates :rank_global_candidate, presence: true
+  validates :english_level, presence: true
 
 
 end
