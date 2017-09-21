@@ -1,0 +1,1 @@
+$(".buttonBuscador").attr("disabled", true)

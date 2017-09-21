@@ -5,12 +5,11 @@ class GameController < ApplicationController
   def home
 
     @numero_preguntas = QuestionsFirstFilter.all.count
+
     #arreglo de las preguntas que ha contestado
     $global_questions ||= []
     
     $id_siguiente_pregunta = ([*1..@numero_preguntas] -$global_questions).sample
-
-    puts $id_siguiente_pregunta  
 
     if $id_siguiente_pregunta
       @random_question =  QuestionsFirstFilter.find($id_siguiente_pregunta)
@@ -36,22 +35,29 @@ class GameController < ApplicationController
 
   	if(@pregunta.respuesta_correcta == respuesta_seleccionada)
 
-      respuesta = AnswerQuestion.new(:respuesta =>  true , :user_id => current_user.id, :questions_first_filter_id => @pregunta.id)
-      respuesta.save
+      @respuesta = AnswerQuestion.new(:respuesta =>  true , :user_id => current_user.id, :questions_first_filter_id => @pregunta.id)
   		@mensaje = "Correcto muy bien , pasemos a la siguiente"
   	else
-      respuesta = AnswerQuestion.new(:respuesta =>  false , :user_id => current_user.id, :questions_first_filter_id => @pregunta.id)
-      respuesta.save
+      @respuesta = AnswerQuestion.new(:respuesta =>  false , :user_id => current_user.id, :questions_first_filter_id => @pregunta.id)
   		@mensaje = "Te equivocaste, la respuesta correcta es #{@pregunta.respuesta_correcta}"
   	end
 
-    $global_questions << $id_siguiente_pregunta
-
 
   	respond_to do |format|
-  		format.html{redirect_to root_path}
-  		format.json {render json: @mensaje}
-  		format.js
+      if @respuesta.save
+
+        $global_questions << $id_siguiente_pregunta
+    		format.html{redirect_to root_path}
+    		format.json {render json: @mensaje}
+    		format.js
+
+      else
+        format.html{redirect_to root_path}
+        format.json {render json: @mensaje}
+        format.js { render :action => "not2Answers" }
+
+      end
+
   	end
   	
 
