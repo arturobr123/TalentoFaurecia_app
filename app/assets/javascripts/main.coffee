@@ -29,6 +29,7 @@ $(document).on "turbolinks:load page:fetch", ()->
 	$('textarea').autosize()
 	Materialize.updateTextFields()
 	$('select').material_select()
+	$(".button-collapse").sideNav()
 
 	$('.datepicker.disponible').pickadate(selectMonths: true, selectYears: true ,min: [2017,1,1],
   max: [2020,12,12] )

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913175908) do
+ActiveRecord::Schema.define(version: 20170922153606) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,6 +44,34 @@ ActiveRecord::Schema.define(version: 20170913175908) do
 
   create_table "carrers", force: :cascade do |t|
     t.text "carrera"
+  end
+
+  create_table "ehm_behaviors", force: :cascade do |t|
+    t.text     "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ehm_competences", force: :cascade do |t|
+    t.text     "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ehm_overall_performances", force: :cascade do |t|
+    t.text     "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ehm_project_realizations", force: :cascade do |t|
+    t.text     "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "english_levels", force: :cascade do |t|
+    t.text "level", null: false
   end
 
   create_table "estados", force: :cascade do |t|

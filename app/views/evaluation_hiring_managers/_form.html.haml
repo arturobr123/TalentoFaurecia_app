@@ -11,18 +11,24 @@
 			.box
 				.row
 					.col.s12
+
+						%div.white-text.z-depth-1.blue.margenAbajo
+							%p.center-align.pregunta_texto
+								PART I. Competences
+
+
 						.row.text-left
 
 							.div.input-field.col.s2
 								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Learns quickly when facing new problems; a relentless and versatile learner; open to change; analyzes both successes and failures for clues to improvement; experiments and will try anything to find solutions; enjoys the challenge of unfamiliar tasks; quickly grasps the essence and the underlying structure of anything."} Learning on the fly
 									 
 
-							.div.input-field.col.s5
-								=f.select :learning_on_the_fly_select, TC::Rank_candidate.all.collect { |u| [u.rank, u.id] }, include_blank: "", placeholder:"Placeholder"
-								%label.blue-text rank global candidate
+							.div.input-field.col.s3
+								=f.select :learning_on_the_fly_select, TC::EhmCompetence.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
 								
 
-							.div.input-field.col.s5
+							.div.input-field.col.s7
 								= f.text_field :learning_on_the_fly_justification, class:"" ,id:"learning_on_the_fly_justification"
 								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"learning_on_the_fly_justification"
 
@@ -30,5 +36,313 @@
 
 
 
-	.actions
-		= f.submit 'Save'
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Uses Rigorous logic and methods to solve difficult problems with effective solutions; probes all fruitful sources for answers; can see hidden problems; is excellent at honest analysis; looks beyond the obvious and doesn´t stop at the first answer."} Problem solving
+									 
+
+							.div.input-field.col.s3
+								=f.select :problem_solving_select, TC::EhmCompetence.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :problem_solving_justification, class:"" ,id:"problem_solving_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"problem_solving_justification"
+
+
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Is dedicated to meeting the expectations and requirements of internal/external customers; get first-hand customer info and uses it for improvements in products and services; acts with customers in mind; establishes and maintains effective relationships with customers and gains their trust and respect."} Customer Focus
+									 
+
+							.div.input-field.col.s3
+								=f.select :customer_focus_select, TC::EhmCompetence.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :customer_focus_justification, class:"" ,id:"customer_focus_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"customer_focus_justification"
+
+
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Spends his/her time and the time of others on what´s important; quickly zeros in on the critical few and puts the trivial many aside; can quickly sense what will help or hinder accomplishing a goal; eliminates roadblocks; creates focus."} Priority Setting
+									 
+
+							.div.input-field.col.s3
+								=f.select :priority_setting_select, TC::EhmCompetence.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :priority_setting_justification, class:"" ,id:"priority_setting_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"priority_setting_justification"
+
+
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Picks up on the need to change personal, interpersonal and managerial behavior quickly; watches others for their reactions to his / her attempts to influence and perform and adjusts; seeks feedback; is sensitive to changing personal demands and requirements and changes accordingly."} Personal learning
+									 
+
+							.div.input-field.col.s3
+								=f.select :personal_learning_select, TC::EhmCompetence.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :personal_learning_justification, class:"" ,id:"personal_learning_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"personal_learning_justification"
+
+
+
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Is widely trusted; is seen as a direct, truthful individual; can present the unvarnished truth in an appropriate and helpful manner; keeps confidences; admits mistakes; doesn´t misrepresent him/herself for personal gain."} Integrity and trust
+									 
+
+							.div.input-field.col.s3
+								=f.select :integrity_and_trust_select, TC::EhmCompetence.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :integrity_and_trust_justification, class:"" ,id:"integrity_and_trust_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"integrity_and_trust_justification"
+
+
+
+
+
+
+
+
+
+
+
+						%div.white-text.z-depth-1.blue.margenAbajo
+							%p.center-align.pregunta_texto
+								PART II. Behaviors
+
+						.row.text-left
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Being entrusted with the management of the company´s tangible and intangible resources. Taking initiatives for business development and value creation to become the industry benchmark."} Entrepreneurship
+									 
+
+							.div.input-field.col.s3
+								=f.select :entrepreneurship_select, TC::EhmBehavior.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :entrepreneurship_justification, class:"" ,id:"entrepreneurship_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"entrepreneurship_justification"
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Being empowered to manage within one´s scope of responsibility and within a system of auto-control. Respecting the Group rules and acting with transparency at all time."} Autonomy
+									 
+
+							.div.input-field.col.s3
+								=f.select :autonomy_select, TC::EhmBehavior.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :autonomy_justification, class:"" ,id:"autonomy_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"autonomy_justification"
+
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Taking full ownership of one´s scope of responsibility. Committing to business performance and people development."} Accountability
+									 
+
+							.div.input-field.col.s3
+								=f.select :accountability_select, TC::EhmBehavior.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :accountability_justification, class:"" ,id:"accountability_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"accountability_justification"
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Using drive and passion to achieve goals and develop value-creating innovations. Reacting to changing situations with agility and speed."} Energy
+									 
+
+							.div.input-field.col.s3
+								=f.select :energy_select, TC::EhmBehavior.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :energy_justification, class:"" ,id:"energy_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"energy_justification"
+
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Building long term partnerships with all stakeholders, treating them fairly and with respect. Developing people from all origins to their full potential and recognizing good performance."} Respect
+									 
+
+							.div.input-field.col.s3
+								=f.select :respect_select, TC::EhmBehavior.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :respect_justification, class:"" ,id:"respect_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"respect_justification"
+
+
+
+
+
+
+							.div.input-field.col.s2
+								%p.lighter.tooltipped{ 'data-position' => "bottom", 'data-delay' => "50", 'data-tooltip' => "Acting as role models using the management code as a guide for behavior. Applying the Group´s systems and methodologies pragmatically to achieve engineering and manufacturing excellence through continuous improvement."} Exemplarity
+									 
+
+							.div.input-field.col.s3
+								=f.select :exemplarity_select, TC::EhmBehavior.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Score
+								
+
+							.div.input-field.col.s7
+								= f.text_field :exemplarity_justification, class:"" ,id:"exemplarity_justification"
+								= f.label "JUSTIFICATION (Real behaviors or examples)", class:"gray-text", for:"exemplarity_justification"
+
+
+
+
+
+
+
+
+
+
+
+
+						%div.white-text.z-depth-1.blue.margenAbajo
+							%p.center-align.pregunta_texto
+								PART III. Project
+
+						.row.text-left
+
+
+
+							.div.input-field.full-width
+								= f.text_area :assigned_project,id:"textarea1", class:"anchoLetra materialize-textarea"
+								= f.label :assigned_project, class:"gray-text"
+
+
+
+
+							.div.input-field.col.s6
+								=f.select :project_realization, TC::EhmProjectRealization.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Project Realization
+
+
+							.div.input-field.col.s6
+								=f.select :project_realization, TC::EhmOverallPerformance.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Overall Performance
+
+
+
+
+							.div.input-field.col.s4
+								=f.select :project_realization, TC::EhmOverallPerformance.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Future Position 1
+
+
+							.div.input-field.col.s4
+								=f.select :project_realization, TC::EhmOverallPerformance.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Future Position 2
+
+
+							.div.input-field.col.s4
+								=f.select :project_realization, TC::EhmOverallPerformance.all.collect { |u| [u.score, u.id] }, include_blank: "", placeholder:"Placeholder"
+								%label.blue-text Future Position 3
+
+
+
+
+
+							.div.input-field.col.s4
+								= f.check_box :mobility_of_intern_afer_assignment
+								= f.label :mobility_of_intern_afer_assignment , class:"blue-text"
+
+
+							.div.input-field.col.s8
+								= f.text_field :mobility_of_intern_afer_assignment_where, class:"" ,id:"mobility_of_intern_afer_assignment_where"
+								= f.label "Where", class:"gray-text", for:"mobility_of_intern_afer_assignment_where"
+
+
+
+
+
+							.div.input-field.col.s4
+								= f.check_box :i_recommend_this_candidate_for_inmediate
+								= f.label :i_recommend_this_candidate_for_inmediate , class:"blue-text"
+
+
+							.div.input-field.col.s8
+								= f.text_field :i_recommend_him_why, class:"" ,id:"i_recommend_him_why"
+								= f.label "Why", class:"gray-text", for:"i_recommend_him_why"
+
+
+
+
+
+							.div.input-field.full-width
+								= f.text_area :aditional_comments,id:"textarea1", class:"anchoLetra materialize-textarea"
+								= f.label :aditional_comments, class:"gray-text"
+
+
+
+
+
+
+						.actions
+							= f.submit 'Save',class:"waves-effect waves-light btn full-width"
+								
+
+
+
+
+
+
+
+

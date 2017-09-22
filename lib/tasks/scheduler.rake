@@ -10,6 +10,13 @@ task :check_users_and_delete_emptys => :environment do
 
   @usuarios.each do |usuario|
   	if(usuario.university.nil? and usuario.carrer.nil?)
+
+  		@answer_questions = AnswerQuestion.where(user_id: usuario.id)
+
+  		if(@answer_questions)
+      		@answer_questions.destroy_all 
+    	end
+
   		usuario.destroy
   	end
 
