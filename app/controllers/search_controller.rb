@@ -38,7 +38,6 @@ class SearchController < ApplicationController
 
   def search_students
     
-    ManagerMailer.notify.deliver
 
     query = ""
 

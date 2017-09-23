@@ -12,5 +12,7 @@ default from: 'talentofaureciaApp@faurecia.com'
     mail(to: "arturo.bravo.rovirosa@hotmail.com",subject: "Notification")
   end
 
+  #ManagerMailer.notify.deliver
+
 
 end
