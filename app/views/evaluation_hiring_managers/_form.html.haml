@@ -10,6 +10,66 @@
 		.col-xs-12
 			.box
 				.row
+
+
+					.div.input-field.col.s4
+						= f.label :estudiante,class:"blue-text"
+						= f.text_field :estudiante, value: "#{@user.name} " + "#{@user.firs_last_name} " + "#{@user.second_last_name}", disabled: true
+
+					.div.input-field.col.s4
+						= f.label :Escuela,class:"blue-text"
+						= f.text_field :Escuela, value: "#{TC::University.find(@user.university).universidad} " 
+
+					.div.input-field.col.s4
+						= f.label :semestre,class:"blue-text"
+						= f.text_field :semestre, value: "#{@user.semester}"
+
+
+
+
+					.div.input-field.col.s4
+						= f.label :location,class:"blue-text"
+						= f.text_field :location 
+
+					.div.input-field.col.s4
+						= f.label :department,class:"blue-text"
+						= f.text_field :department 
+
+					.div.input-field.col.s4
+						= f.label :responsable_name,class:"blue-text"
+						= f.text_field :responsable_name
+
+
+
+
+
+					.div.input-field.col.s4
+						=f.date_field :start_date ,type:"text" , class:"datepicker disponible",id:"start_date"
+						%label.blue-text{:for => "start_date"} Start date
+
+
+					.div.input-field.col.s4
+						=f.date_field :end_date ,type:"text" , class:"datepicker disponible",id:"end_date"
+						%label.blue-text{:for => "end_date"} End date
+
+
+					.div.input-field.col.s4
+						= f.label :responsable_position,class:"blue-text"
+						= f.text_field :responsable_position
+
+
+
+
+
+					.div.input-field.col.s4
+						= f.label :target_position,class:"blue-text"
+						= f.text_field :target_position
+
+
+
+
+
+
 					.col.s12
 
 						%div.white-text.z-depth-1.blue.margenAbajo
@@ -333,10 +393,14 @@
 
 
 
+						
+							.field.ocultar
+								= f.label :user_id
+								= f.text_field :user_id, value: @user.id
 
 
 						.actions
-							= f.submit 'Save',class:"waves-effect waves-light btn full-width"
+							= f.submit 'Save',class:"btn full-width"
 								
 
 

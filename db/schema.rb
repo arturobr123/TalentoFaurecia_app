@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922153606) do
+ActiveRecord::Schema.define(version: 20170923000848) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -119,6 +119,13 @@ ActiveRecord::Schema.define(version: 20170922153606) do
     t.text     "name_hiring_manager"
     t.boolean  "i_recommend_this_candidate_for_inmediate"
     t.text     "i_recommend_him_why"
+    t.text     "location"
+    t.text     "department"
+    t.text     "responsable_name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "responsable_position"
+    t.text     "target_position"
     t.index ["admin_id"], name: "index_evaluation_hiring_managers_on_admin_id"
     t.index ["user_id"], name: "index_evaluation_hiring_managers_on_user_id"
   end

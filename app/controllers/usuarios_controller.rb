@@ -1,6 +1,6 @@
 class UsuariosController < ApplicationController
 	before_action :set_user ,except: [:index , :ver_respuestas_user]
-	#before_action :authenticate_user!,only: [:update] #gema devise
+	before_action :authenticate_admin!,only: [:index] #gema devise
 	#before_action :authenticate_owner!,only: [:update] #solo aunteticar si es el perfil del current user
 
 	def index

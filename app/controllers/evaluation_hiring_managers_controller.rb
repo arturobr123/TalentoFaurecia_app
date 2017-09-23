@@ -1,6 +1,7 @@
 class EvaluationHiringManagersController < ApplicationController
-  before_action :set_evaluation_hiring_manager, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_evaluation_hiring_manager, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:new]
   # GET /evaluation_hiring_managers
   # GET /evaluation_hiring_managers.json
   def index
@@ -15,10 +16,13 @@ class EvaluationHiringManagersController < ApplicationController
   # GET /evaluation_hiring_managers/new
   def new
     @evaluation_hiring_manager = EvaluationHiringManager.new
+
+    @user = User.find(params[:userid])
   end
 
   # GET /evaluation_hiring_managers/1/edit
   def edit
+    @user = User.find(@evaluation_hiring_manager.user_id)
   end
 
   # POST /evaluation_hiring_managers
@@ -31,6 +35,7 @@ class EvaluationHiringManagersController < ApplicationController
         format.html { redirect_to @evaluation_hiring_manager, notice: 'Evaluation hiring manager was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation_hiring_manager }
       else
+        @user = User.find(@evaluation.user_id)
         format.html { render :new }
         format.json { render json: @evaluation_hiring_manager.errors, status: :unprocessable_entity }
       end
@@ -66,6 +71,20 @@ class EvaluationHiringManagersController < ApplicationController
     def set_evaluation_hiring_manager
       @evaluation_hiring_manager = EvaluationHiringManager.find(params[:id])
     end
+
+
+    def set_user
+      @user = User.find(params[:userid])
+
+      if(@user.university.nil? and @user.carrer.nil?)
+        redirect_to root_path,notice:"No se puede evaluar, el usuario no ha completado su información"
+      else
+        return true
+        
+      end
+      
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_hiring_manager_params
