@@ -135,12 +135,12 @@
           .col.s4
 
 
-          -if @user.status == 3 
-            .col.12.top-space2
+          -if @user.status == 1 
+            .col.12.top-space2#ocultar_mostrar_send_hiring_manager
               %a.btn#mostrar_send_hiring_manager
                 Enviar evaluación a hiring manager
 
-            .col.12.top-space2.ocultar#send_hiring_manager
+            .col.12.top-space2.ocultar.right-xs#send_hiring_manager
               =form_tag "/usuarios/enviar_evaluation_hiring_manager" , method: :get do
 
 
