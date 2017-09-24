@@ -68,11 +68,16 @@ class UsuariosController < ApplicationController
 	def enviar_evaluation_hiring_manager
 		email_hiring_manager = params[:email_hiring_manager]
 
-		ManagerMailer.notify(@user, email_hiring_manager).deliver
 
 		respond_to do |format|
-	      format.html {redirect_to root_path, notice: "Se envió el correo correctamente"}
-	      format.js
+
+		  if ManagerMailer.notify(@user, email_hiring_manager).deliver
+		      format.html {redirect_to root_path, notice: "Se envió el correo correctamente"}
+		      format.js
+		  else
+		  	  format.html {redirect_to root_path, notice: "No se pudo enviar el correo, volver a intentar"}
+		      format.js
+		  end
       end
 
 	end
