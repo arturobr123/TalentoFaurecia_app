@@ -3,14 +3,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.name %></h1>
+    <h4> Plataforma Talento Faurecia</h1>
     <p>
-      You have received a notification
+      Hola, usted es el hiring manager de <%= @user.name %> <%= @user.firs_last_name %> <%= @user.second_last_name %>
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Por favor entrar en la siguiente liga para poder evaluar el desempeño de <%= @user.name %></p>
 
 
-    <%= link_to  "evaluacion" ,new_evaluation_hiring_manager_url(userid: 1) %>
+    <%= link_to  "Evaluación, click aquí" ,new_evaluation_hiring_manager_url(userid: @user.id) %>
+
+    <p> Gracias.</p>
+    <p> Saludos</p>
 
   </body>
 </html>

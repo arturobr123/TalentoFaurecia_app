@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
 
+  get 'usuarios/enviar_evaluation_hiring_manager'
+
   resources :evaluation_hiring_managers
 
+  
 
   get "usuarios/ver_respuestas_user" => 'usuarios#ver_respuestas_user', :as => :ver_respuestas_user
 

@@ -16,7 +16,13 @@ class Notification < ApplicationRecord
   	@vacantes_aplicadas = VacanteAplicada.where(status: 3)
   	@vacantes_aplicadas.each do |vacante_aplicada|
   		if(  (DateTime.now - vacante_aplicada.updated_at.to_datetime).to_i  == 120)
-  			Notification.create(item: vacante_aplicada, admin_id: item.cualAdmin) 
+
+        #enviar evaluation a ahiring manager
+        ManagerMailer.notify(vacante_aplicada.user, vacante_aplicada.vacante.email_hiring_manager).deliver 
+
+        #notificacion al admin de que ya va a acabar
+        Notification.create(item: vacante_aplicada, admin_id: item.cualAdmin)
+
   		end
   		
   	end

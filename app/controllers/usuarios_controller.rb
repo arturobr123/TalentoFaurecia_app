@@ -22,6 +22,7 @@ class UsuariosController < ApplicationController
 	end
 
 
+
 	def edit
 
 		if current_user
@@ -61,6 +62,19 @@ class UsuariosController < ApplicationController
 	      format.js
       end
 		
+	end
+
+
+	def enviar_evaluation_hiring_manager
+		email_hiring_manager = params[:email_hiring_manager]
+
+		ManagerMailer.notify(@user, email_hiring_manager).deliver
+
+		respond_to do |format|
+	      format.html {redirect_to root_path, notice: "Se envió el correo correctamente"}
+	      format.js
+      end
+
 	end
 
 	private

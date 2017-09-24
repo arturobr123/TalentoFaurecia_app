@@ -121,13 +121,40 @@
 
 
 
-    .col.s12
-      .row
+
+
+
+
+
         -if current_admin
           .col.s4
-            = link_to 'Nueva Evaluacion', new_evaluation_path(userid: @user.id), class:"waves-effect waves-light btn"
+            = link_to 'Nueva Evaluacion', new_evaluation_path(userid: @user.id), class:" btn"
           .col.s4
-            =link_to "ver respuestas de juego", ver_respuestas_user_path(userid: @user.id), :remote => true , class:"waves-effect waves-light btn blue"
+            =link_to "ver respuestas de juego", ver_respuestas_user_path(userid: @user.id), :remote => true , class:"btn blue"
+
+          .col.s4
+
+
+          -if @user.status == 3 
+            .col.12.top-space2
+              %a.btn#mostrar_send_hiring_manager
+                Enviar evaluación a hiring manager
+
+            .col.12.top-space2.ocultar#send_hiring_manager
+              =form_tag "/usuarios/enviar_evaluation_hiring_manager" , method: :get do
+
+
+                = email_field_tag :email_hiring_manager, nil , class:"", id:"email_hiring_manager", placeholder:"Email hiring manager"
+                
+                =text_field_tag :id, nil, class:"ocultar", value:@user.id 
+
+                =button_tag "Enviar" , class: 'btn' , type: :submit
+
+              
+
+
+   
+
 
 
 

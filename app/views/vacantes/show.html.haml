@@ -27,6 +27,11 @@
       %p
         %b Name Hiring Manager:
         = @vacante.Name_Hiring_Manager
+
+      %p
+        %b Correo Hiring Manager:
+        = @vacante.email_hiring_manager
+
       %p
         %b Periodo practica:
         =TC::Month.find(@vacante.mes_inicio).mes

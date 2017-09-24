@@ -14,12 +14,14 @@
           .col.s12
             .row.text-left
               .div.input-field.col.s6
+
                 = f.text_field :name, autofocus: true, class:"" ,id:"name"
                 = f.label :Nombre_vacante, class:"blue-text", for:"name"
 
               .div.input-field.col.s6
                 =f.select :area, TC::Job_area.all.ordenados.collect { |u| [u.job_area, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Area a la que pertenece la vacante
+
 
 
 
@@ -43,9 +45,13 @@
                 =f.select :mes_fin, TC::Month.all.collect { |u| [u.mes, u.id] }, include_blank: "", placeholder:"Placeholder"
                 %label.blue-text Mes fin
 
-              .div.input-field.col.s6 
+              .div.input-field.col.s3
                 = f.text_field :Name_Hiring_Manager, class:"", id:"Name_Hiring_Manager"
                 = f.label :Nombre_Hiring_Manager, class:"blue-text", for:"Name_Hiring_Manager"
+
+              .div.input-field.col.s3 
+                = f.email_field :email_hiring_manager, class:"", id:"email_hiring_manager"
+                = f.label :email_hiring_manager, class:"blue-text", for:"email_hiring_manager"
 
               
 
@@ -73,5 +79,7 @@
 
             .actions.top-space2
               = f.submit 'Save', class:"btn full-width"
+
+            %p *Checar que el correo del hiring manager sea correcto.
 
 
