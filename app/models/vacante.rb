@@ -10,6 +10,8 @@ class Vacante < ApplicationRecord
   validates :mes_inicio, presence: true
   validates :mes_fin, presence: true
 
+  validates :email_hiring_manager, presence: true
+
   has_many :vacantes_aplicadas
     
 end

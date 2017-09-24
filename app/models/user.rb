@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :carrer, presence: true , :on => :update
   validates :estado_residencia, presence: true , :on => :update
   validates :interest_area1, presence: true , :on => :update
+  validates :phone, presence: true , :on => :update
 
   validates :name, presence: true, length: {in: 3..50}
   validates :firs_last_name, presence: true

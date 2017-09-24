@@ -68,7 +68,6 @@ class UsuariosController < ApplicationController
 	def enviar_evaluation_hiring_manager
 		email_hiring_manager = params[:email_hiring_manager]
 
-
 		respond_to do |format|
 
 		  if ManagerMailer.notify(@user, email_hiring_manager).deliver
