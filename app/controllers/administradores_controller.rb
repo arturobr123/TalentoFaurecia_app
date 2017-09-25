@@ -17,7 +17,6 @@ class AdministradoresController < ApplicationController
 	end
 
 	def update
-		Notification.create(item: @admin, admin_id: 1)
 		respond_to do |format|
 			if @admin.update(admin_params)
 				format.html {redirect_to root_path}

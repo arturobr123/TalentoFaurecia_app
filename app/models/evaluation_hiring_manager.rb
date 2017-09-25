@@ -7,7 +7,7 @@ class EvaluationHiringManager < ApplicationRecord
 
 
 	def cualAdmin
-		return self.admin.id
+		return self.admin_id
 	end
 
 
