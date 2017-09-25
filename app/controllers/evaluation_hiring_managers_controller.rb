@@ -59,6 +59,12 @@ class EvaluationHiringManagersController < ApplicationController
   # DELETE /evaluation_hiring_managers/1
   # DELETE /evaluation_hiring_managers/1.json
   def destroy
+
+    @notifications = Notification.where(item_id:  @evaluation_hiring_manager.id) #destrir todas las notificaciones que sean de esta vacante
+    if(@notifications)
+      @notifications.destroy_all #destruye todas las notificaciones que tengan que ver con esta vacante
+    end
+
     @evaluation_hiring_manager.destroy
     respond_to do |format|
       format.html { redirect_to evaluation_hiring_managers_url, notice: 'Evaluation hiring manager was successfully destroyed.' }

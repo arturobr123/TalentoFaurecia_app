@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   has_many :answer_questions
 
+  has_many :evaluation_hiring_managers
+
   validates :university, presence: true , :on => :update
   validates :carrer, presence: true , :on => :update
   validates :estado_residencia, presence: true , :on => :update
