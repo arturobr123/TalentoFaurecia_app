@@ -398,6 +398,10 @@
 								= f.label :user_id
 								= f.text_field :user_id, value: @user.id
 
+							.field.ocultar
+								= f.label :admin_id
+								= f.text_field :admin_id, value: @admin.id
+
 
 						.actions
 							= f.submit 'Save',class:"btn full-width"

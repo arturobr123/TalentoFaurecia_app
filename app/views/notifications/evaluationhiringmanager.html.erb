@@ -1,0 +1,33 @@
+
+<li class="collection-item avatar">
+
+      <i class="material-icons circle green">person</i>
+
+      <span class="title"><%= link_to "Han completado la evaluacion_hiring_manager de #{notification.item.user.name} #{notification.item.user.firs_last_name} #{notification.item.user.second_last_name}" , notification.item.user , class:"black-text"  %></span>
+
+
+      <% if notification.item.user.university %>
+      	<p>Escuela: <%= TC::University.find(notification.item.user.university).universidad %> </p>
+
+      <% else %>
+      	<p>Escuela: No found </p>
+
+      <% end %>
+
+
+
+      <% if notification.item.user.carrer %>
+      	<p>Carrera: <%= TC::Carrer.find(notification.item.user.carrer).carrera %> </p>
+
+      <% else %>
+      	<p>Carrera: No found </p>
+
+      <% end %>  
+
+      <%= link_to notification_path(id: notification.id,notification:{viewed: true}),method: :put, class:"secondary-content" do %>
+            <i class="material-icons">check</i>
+
+      <% end %>
+
+
+</li>

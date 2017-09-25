@@ -10,7 +10,7 @@
     <p>Por favor entrar en la siguiente liga para poder evaluar el desempeño de <%= @user.name %></p>
 
 
-    <%= link_to  "Evaluación, click aquí" ,new_evaluation_hiring_manager_url(userid: @user.id) %>
+    <%= link_to  "Evaluación, click aquí" ,new_evaluation_hiring_manager_url(userid: @user.id, adminid: @admin.id) %>
 
     <p> Gracias.</p>
     <p> Saludos</p>

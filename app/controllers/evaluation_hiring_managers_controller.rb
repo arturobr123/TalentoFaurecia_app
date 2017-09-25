@@ -1,7 +1,7 @@
 class EvaluationHiringManagersController < ApplicationController
 
   before_action :set_evaluation_hiring_manager, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:new]
+  before_action :set_user_and_admin, only: [:new]
   # GET /evaluation_hiring_managers
   # GET /evaluation_hiring_managers.json
   def index
@@ -17,12 +17,12 @@ class EvaluationHiringManagersController < ApplicationController
   def new
     @evaluation_hiring_manager = EvaluationHiringManager.new
 
-    @user = User.find(params[:userid])
   end
 
   # GET /evaluation_hiring_managers/1/edit
   def edit
     @user = User.find(@evaluation_hiring_manager.user_id)
+    @admin = User.find(@evaluation_hiring_manager.admin_id)
   end
 
   # POST /evaluation_hiring_managers
@@ -66,6 +66,9 @@ class EvaluationHiringManagersController < ApplicationController
     end
   end
 
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evaluation_hiring_manager
@@ -73,15 +76,10 @@ class EvaluationHiringManagersController < ApplicationController
     end
 
 
-    def set_user
+    def set_user_and_admin
       @user = User.find(params[:userid])
 
-      if(@user.university.nil? and @user.carrer.nil?)
-        redirect_to root_path,notice:"No se puede evaluar, el usuario no ha completado su información"
-      else
-        return true
-        
-      end
+      @admin = Admin.find(params[:adminid])
       
     end
 
@@ -91,4 +89,5 @@ class EvaluationHiringManagersController < ApplicationController
       #params.fetch(:evaluation_hiring_manager, {})
       params.require(:evaluation_hiring_manager).permit(:learning_on_the_fly_select, :learning_on_the_fly_justification,:problem_solving_select , :problem_solving_justification, :customer_focus_select, :customer_focus_justification, :priority_setting_select, :priority_setting_justification, :personal_learning_select, :personal_learning_justification, :integrity_and_trust_select, :integrity_and_trust_justification, :entrepreneurship_select, :entrepreneurship_justification, :autonomy_select, :autonomy_justification, :accountability_select, :accountability_justification, :energy_select, :energy_justification, :respect_select, :respect_justification, :exemplarity_select, :exemplarity_justification, :assigned_project, :project_realization, :overall_performance, :future_position_option1, :future_position_option2, :future_position_option3, :mobility_of_intern_afer_assignment, :mobility_of_intern_afer_assignment_where, :aditional_comments, :i_recommend_this_candidate_for_inmediate, :i_recommend_him_why, :admin_id, :user_id, :name_hiring_manager)
     end
+    
 end

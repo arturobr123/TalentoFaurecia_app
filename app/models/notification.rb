@@ -18,7 +18,7 @@ class Notification < ApplicationRecord
   		if(  (DateTime.now - vacante_aplicada.updated_at.to_datetime).to_i  == 120)
 
         #enviar evaluation a ahiring manager
-        ManagerMailer.notify(vacante_aplicada.user, vacante_aplicada.vacante.email_hiring_manager).deliver 
+        ManagerMailer.notify(vacante_aplicada.user, vacante_aplicada.vacante.email_hiring_manager , vacante_aplicada.vacante.admin).deliver 
 
         #notificacion al admin de que ya va a acabar
         Notification.create(item: vacante_aplicada, admin_id: item.cualAdmin)

@@ -679,3 +679,19 @@ margin: 20px auto;
 .margenAbajo{
 	margin-bottom: 1.5em; 
 }
+
+
+
+p[data-tooltip] {
+  text-align : justify !important;
+}
+
+
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+
+  text-align: justify !important;
+
+}
+
