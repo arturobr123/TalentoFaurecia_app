@@ -11,6 +11,8 @@ class Admin < ApplicationRecord
 
   has_many :notifications
 
+  validates_format_of :email, with: /\@faurecia\.com/, message: 'Usuario invalido'
+
 
   def unviewed_notifications_count
     Notification.for_admin(self.id)
