@@ -37,6 +37,22 @@ class SearchController < ApplicationController
 
 
   def search_students
+
+    @usuarios = User.all
+    
+    @usuarios.each do |usuario|
+      if(usuario.university.nil? and usuario.carrer.nil?)
+
+        @answer_questions = AnswerQuestion.where(user_id: usuario.id)
+
+        if(@answer_questions)
+            @answer_questions.destroy_all 
+        end
+
+        usuario.destroy
+      end
+
+    end
     
 
     query = ""
