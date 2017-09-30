@@ -133,6 +133,7 @@
             =link_to "ver respuestas de juego", ver_respuestas_user_path(userid: @user.id), :remote => true , class:"btn blue"
 
           .col.s4
+            =link_to "Enlazar a vacante", enlazar_a_vacante_path(id: @user.id) , class:"btn blue"
 
 
           -if @user.status == 3 

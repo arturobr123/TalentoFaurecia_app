@@ -37,7 +37,7 @@ class VacanteAplicadasController < ApplicationController
 
     respond_to do |format|
       if @vacante_aplicada.save
-        format.html { redirect_to @vacante_aplicada, notice: 'Se ha aplicado aplicado correctamente a la vacante' }
+        format.html { redirect_to root_path, notice: 'Se ha aplicado aplicado correctamente a la vacante' }
         format.json { render :show, status: :created, location: @vacante_aplicada }
       else
         format.html { render :new }
@@ -85,12 +85,15 @@ class VacanteAplicadasController < ApplicationController
     end
 
     def authenticate_user_information
-      @usuario = current_user
-      if(@usuario.university.nil? or @usuario.carrer.nil?)
-        redirect_to edit_user_path(current_user),notice:"El usuario no ha completado su informacion, completar y volver a aplicar a vacante"
-      else
-        return true
-        
+
+      if current_user
+        @usuario = current_user
+        if(@usuario.university.nil? or @usuario.carrer.nil?)
+          redirect_to edit_user_path(current_user),notice:"El usuario no ha completado su informacion, completar y volver a aplicar a vacante"
+        else
+          return true
+          
+        end
       end
       
     end

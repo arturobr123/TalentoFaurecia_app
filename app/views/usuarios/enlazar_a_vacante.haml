@@ -1,0 +1,34 @@
+%body.white-background
+%h4.text-center Enlazar estudiante a vacante
+
+
+
+= form_for @vacante_aplicada do |f| #form_for  @usuario
+	- if @vacante_aplicada.errors.any?
+		#error_explanation
+			%h4= "#{pluralize(@vacante_aplicada.errors.count, "error")} prohibited this vacante_aplicada from being saved:"
+			%ul
+				- @vacante_aplicada.errors.full_messages.each do |message|
+					%li= message
+
+	.row.center-xs.middle-xs
+		.col-xs-8
+			.box
+
+				.row
+					.col.s12
+						.row.text-left
+
+							.div.input-field.col.s12.margenAbajo.medium
+								= @user.name + " " + @user.firs_last_name + " " + @user.second_last_name + " aplicará a la siguiente vacante:"
+
+
+							.div.input-field.col.s12
+								= f.select :vacante_id, Vacante.all.collect { |u| [u.name, u.id] },{include_blank: "" , placeholder:"Placeholder"},{"aria-required" => true ,"required" => ""}
+								%label.blue-text Vacantes
+
+							.ocultar
+								= f.text_field :user_id , value: "#{@user.id}"
+
+						.actions
+							= f.submit 'Save',class:"btn full-width"

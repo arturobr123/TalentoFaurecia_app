@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  get "usuarios/enlazar_a_vacante" => 'usuarios#enlazar_a_vacante', :as => :enlazar_a_vacante
+
+  #metodo en el controlador para enviar la evaluation_hiring_manager
   get 'usuarios/enviar_evaluation_hiring_manager'
 
   resources :evaluation_hiring_managers
