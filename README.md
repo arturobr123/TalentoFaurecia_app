@@ -6,3 +6,5 @@ Platform where the students can search internships in faurecia an apply. The rec
 The link is:
 
 www.talentofaurecia.com.mx
+
+MADE IN RUBY ON RAILS
