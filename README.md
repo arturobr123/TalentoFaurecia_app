@@ -1,6 +1,8 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require_relative 'config/application'
+Talento Faurecia
 
-Rails.application.load_tasks
+Platform where the students can search internships in faurecia an apply. The recruiters can upload vacancies and see which students have applied.
+
+The link is:
+
+www.talentofaurecia.com.mx
